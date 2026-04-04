@@ -4,9 +4,19 @@ interface Props {
   title: string
   showGraph: boolean
   onToggleGraph: () => void
+  showDiagnostics: boolean
+  diagnosticCount: number
+  onToggleDiagnostics: () => void
 }
 
-export default function BoardHeader({ title, showGraph, onToggleGraph }: Props) {
+export default function BoardHeader({
+  title,
+  showGraph,
+  onToggleGraph,
+  showDiagnostics,
+  diagnosticCount,
+  onToggleDiagnostics,
+}: Props) {
   const navigate = useNavigate()
 
   return (
@@ -21,6 +31,13 @@ export default function BoardHeader({ title, showGraph, onToggleGraph }: Props) 
         title={showGraph ? 'Hide waveform' : 'Show waveform'}
       >
         ∿
+      </button>
+      <button
+        className={`btn-ghost board-header__diag-toggle${showDiagnostics ? ' board-header__diag-toggle--active' : ''}`}
+        onClick={onToggleDiagnostics}
+        title={showDiagnostics ? 'Hide diagnostics' : 'Show diagnostics'}
+      >
+        ⚠{diagnosticCount > 0 ? ` ${diagnosticCount}` : ''}
       </button>
     </header>
   )

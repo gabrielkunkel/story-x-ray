@@ -2,10 +2,12 @@ import { useState, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
 import type { Story, Dimension } from '../types/story'
+import { runDiagnostics } from '../utils/diagnostics'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import CardEditor from '../components/CardEditor'
 import WaveformGraph from '../components/WaveformGraph'
+import DiagnosticsPanel from '../components/DiagnosticsPanel'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -24,11 +26,14 @@ export default function StoryWorkspacePage() {
   )
   const [activeStepNumber, setActiveStepNumber] = useState<number | null>(null)
   const [showGraph, setShowGraph] = useState(true)
+  const [showDiagnostics, setShowDiagnostics] = useState(false)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
     setStory(updatedStory)
     saveStory(updatedStory)
   }, [])
+
+  const diagnostics = story ? runDiagnostics(story.steps) : []
 
   if (!story) {
     return (
@@ -83,6 +88,9 @@ export default function StoryWorkspacePage() {
         title={story.title}
         showGraph={showGraph}
         onToggleGraph={() => setShowGraph(v => !v)}
+        showDiagnostics={showDiagnostics}
+        diagnosticCount={diagnostics.length}
+        onToggleDiagnostics={() => setShowDiagnostics(v => !v)}
       />
 
       <div className="workspace__body">
@@ -117,6 +125,13 @@ export default function StoryWorkspacePage() {
           story={story}
           activeStepNumber={activeStepNumber}
           onStepHover={setActiveStepNumber}
+        />
+      )}
+
+      {showDiagnostics && (
+        <DiagnosticsPanel
+          diagnostics={diagnostics}
+          onStepClick={setActiveStepNumber}
         />
       )}
     </div>

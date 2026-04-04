@@ -2,11 +2,20 @@
 
 ## Current Status
 - Milestone: 1.0 MVP
-- Active Phase: None (ready to start Phase 1)
+- Active Phase: None (ready to start Phase 6)
 - Last updated: 2026-04-04
 
 ## Completed Phases
-_(none yet)_
+- **Phase 1 — App Foundation** (2026-04-04) — commit `fe71e01`
+  - Data model, 16-step config, localStorage service, routing, 3 pages, PWA manifest
+- **Phase 2 — 16-Card Board** (2026-04-04) — commit `e8e1b8c`
+  - 4-column board, 16 StoryCard components, CardEditor with beat/notes/hints, auto-save
+- **Phase 3 — Scoring & Target vs Actual** (2026-04-04) — commit `6713a1c`
+  - ScoreInput component, 4 dimensions per card, delta with color coding, localStorage persistence
+- **Phase 4 — Waveform Graph** (2026-04-04) — commit `8eaa928`
+  - Recharts LineChart, 4 target (dashed) + 4 actual (solid) lines, hover→card sync, graph toggle
+- **Phase 5 — Diagnostics** (2026-04-04) — commit TBD
+  - Pure diagnostic engine (4 rules), DiagnosticsPanel with step chips, ⚠ toggle in BoardHeader
 
 ## In Progress
 _(none)_
