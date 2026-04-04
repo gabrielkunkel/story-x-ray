@@ -5,6 +5,7 @@ import type { Story, Dimension } from '../types/story'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import CardEditor from '../components/CardEditor'
+import WaveformGraph from '../components/WaveformGraph'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -22,6 +23,7 @@ export default function StoryWorkspacePage() {
     id ? loadStory(id) : null
   )
   const [activeStepNumber, setActiveStepNumber] = useState<number | null>(null)
+  const [showGraph, setShowGraph] = useState(true)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
     setStory(updatedStory)
@@ -77,7 +79,11 @@ export default function StoryWorkspacePage() {
 
   return (
     <div className="workspace">
-      <BoardHeader title={story.title} />
+      <BoardHeader
+        title={story.title}
+        showGraph={showGraph}
+        onToggleGraph={() => setShowGraph(v => !v)}
+      />
 
       <div className="workspace__body">
         <div className="workspace__board">
@@ -105,6 +111,14 @@ export default function StoryWorkspacePage() {
           />
         )}
       </div>
+
+      {showGraph && (
+        <WaveformGraph
+          story={story}
+          activeStepNumber={activeStepNumber}
+          onStepHover={setActiveStepNumber}
+        />
+      )}
     </div>
   )
 }

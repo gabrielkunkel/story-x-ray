@@ -658,3 +658,65 @@ textarea {
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
 }
+
+/* ── Waveform Graph ───────────────────────────────────────── */
+
+.waveform-graph {
+  padding: 12px 16px 8px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.waveform-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.waveform-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font: 500 11px/1 var(--sans);
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.waveform-legend__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.waveform-tooltip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.waveform-tooltip__step {
+  font-weight: 700;
+  color: var(--text-h);
+  margin-bottom: 4px;
+}
+
+.waveform-tooltip__row {
+  font: 500 11px/1.6 var(--mono);
+}
+
+.board-header__graph-toggle {
+  margin-left: auto;
+  font-size: 18px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.board-header__graph-toggle--active {
+  color: var(--accent);
+}
