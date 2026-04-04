@@ -1,14 +1,20 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
 import type { Story, Dimension } from '../types/story'
 import { runDiagnostics } from '../utils/diagnostics'
 import { exportStoryAsJSON, exportStoryAsMarkdown } from '../utils/export'
+import {
+  hasSubmittedEmail,
+  hasShownThisSession,
+  markShownThisSession,
+} from '../utils/emailCapture'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import CardEditor from '../components/CardEditor'
 import WaveformGraph from '../components/WaveformGraph'
 import DiagnosticsPanel from '../components/DiagnosticsPanel'
+import EmailCaptureModal, { type CaptureContext } from '../components/EmailCaptureModal'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -29,6 +35,8 @@ export default function StoryWorkspacePage() {
   const [showGraph, setShowGraph] = useState(true)
   const [showDiagnostics, setShowDiagnostics] = useState(false)
   const [importError, setImportError] = useState<string | null>(null)
+  const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
+  const act1CheckedRef = useRef(false)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
     setStory(updatedStory)
@@ -36,6 +44,18 @@ export default function StoryWorkspacePage() {
   }, [])
 
   const diagnostics = story ? runDiagnostics(story.steps) : []
+
+  // Trigger 1 — Post-Act-I popup
+  useEffect(() => {
+    if (!story || act1CheckedRef.current) return
+    if (hasSubmittedEmail() || hasShownThisSession('act1')) return
+    const act1Steps = story.steps.filter(s => s.act === 'I')
+    if (act1Steps.every(s => s.beatText.trim().length > 0)) {
+      act1CheckedRef.current = true
+      markShownThisSession('act1')
+      setCaptureContext('act1')
+    }
+  }, [story])
 
   if (!story) {
     return (
@@ -101,6 +121,33 @@ export default function StoryWorkspacePage() {
     }
   }
 
+  // Trigger 2 — first export capture
+  function handleExportJSON() {
+    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+      markShownThisSession('export')
+      setCaptureContext('export')
+    }
+    exportStoryAsJSON(story!)
+  }
+
+  function handleExportMarkdown() {
+    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+      markShownThisSession('export')
+      setCaptureContext('export')
+    }
+    exportStoryAsMarkdown(story!)
+  }
+
+  // Trigger 3 — diagnostics panel CTA
+  const showDiagCaptureCTA = showDiagnostics
+    && !hasSubmittedEmail()
+    && !hasShownThisSession('diagnostics')
+
+  function handleDiagCaptureClick() {
+    markShownThisSession('diagnostics')
+    setCaptureContext('diagnostics')
+  }
+
   return (
     <div className="workspace">
       <BoardHeader
@@ -110,8 +157,8 @@ export default function StoryWorkspacePage() {
         showDiagnostics={showDiagnostics}
         diagnosticCount={diagnostics.length}
         onToggleDiagnostics={() => setShowDiagnostics(v => !v)}
-        onExportJSON={() => exportStoryAsJSON(story)}
-        onExportMarkdown={() => exportStoryAsMarkdown(story)}
+        onExportJSON={handleExportJSON}
+        onExportMarkdown={handleExportMarkdown}
         onImportJSON={handleImportJSON}
       />
 
@@ -158,6 +205,15 @@ export default function StoryWorkspacePage() {
         <DiagnosticsPanel
           diagnostics={diagnostics}
           onStepClick={setActiveStepNumber}
+          showCaptureCTA={showDiagCaptureCTA}
+          onCaptureClick={handleDiagCaptureClick}
+        />
+      )}
+
+      {captureContext && (
+        <EmailCaptureModal
+          context={captureContext}
+          onClose={() => setCaptureContext(null)}
         />
       )}
     </div>

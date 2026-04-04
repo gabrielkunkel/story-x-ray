@@ -747,6 +747,166 @@ textarea {
   flex-shrink: 0;
 }
 
+/* ── Start Page CTAs ──────────────────────────────────────── */
+
+.start-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.start-cta-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font: 500 13px/1 var(--sans);
+  cursor: pointer;
+  padding: 4px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ── Diagnostics Capture CTA ──────────────────────────────── */
+
+.diag-capture-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px dashed var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.diag-capture-cta__text {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.diag-capture-cta__btn {
+  font-size: 12px;
+  padding: 6px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Email Capture Modal ──────────────────────────────────── */
+
+.capture-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+}
+
+.capture-modal {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 28px 20px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.capture-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  padding: 4px 10px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.capture-modal__headline {
+  font: 700 1.15rem/1.3 var(--heading);
+  color: var(--text-h);
+  margin: 0;
+  padding-right: 32px;
+}
+
+.capture-modal__body {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.capture-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+
+  input {
+    font-size: 15px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.capture-modal__error {
+  font-size: 13px;
+  color: #e53e3e;
+  margin: 0;
+}
+
+.capture-modal__success {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+
+  p {
+    font: 600 15px/1 var(--sans);
+    color: #16a34a;
+    margin: 0;
+  }
+}
+
+.capture-modal__skip {
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.55;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 2px;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 /* ── Diagnostics Panel ────────────────────────────────────── */
 
 .diagnostics-panel {

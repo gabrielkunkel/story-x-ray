@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getActiveStoryId } from '../services/storage'
 import { loadExampleStory } from '../data/exampleStory'
+import EmailCaptureModal, { type CaptureContext } from '../components/EmailCaptureModal'
 
 export default function StartPage() {
   const navigate = useNavigate()
   const activeId = getActiveStoryId()
+  const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
 
   function handleLoadExample() {
     const id = loadExampleStory()
@@ -32,9 +35,25 @@ export default function StartPage() {
         </button>
       </div>
 
+      <div className="start-ctas">
+        <button className="start-cta-link" onClick={() => setCaptureContext('examples')}>
+          Get 5 example story maps →
+        </button>
+        <button className="start-cta-link" onClick={() => setCaptureContext('early-access')}>
+          28-step early access →
+        </button>
+      </div>
+
       <p className="start-note">
         16-step story architecture · Local-first · No account needed
       </p>
+
+      {captureContext && (
+        <EmailCaptureModal
+          context={captureContext}
+          onClose={() => setCaptureContext(null)}
+        />
+      )}
     </main>
   )
 }

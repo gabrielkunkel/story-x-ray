@@ -3,9 +3,11 @@ import type { Diagnostic } from '../utils/diagnostics'
 interface Props {
   diagnostics: Diagnostic[]
   onStepClick: (stepNumber: number) => void
+  showCaptureCTA: boolean
+  onCaptureClick: () => void
 }
 
-export default function DiagnosticsPanel({ diagnostics, onStepClick }: Props) {
+export default function DiagnosticsPanel({ diagnostics, onStepClick, showCaptureCTA, onCaptureClick }: Props) {
   return (
     <div className="diagnostics-panel">
       {diagnostics.length === 0 ? (
@@ -32,6 +34,15 @@ export default function DiagnosticsPanel({ diagnostics, onStepClick }: Props) {
             </li>
           ))}
         </ul>
+      )}
+
+      {showCaptureCTA && (
+        <div className="diag-capture-cta">
+          <p className="diag-capture-cta__text">Get the structure rescue guide + 5 example story maps — free.</p>
+          <button className="btn-secondary diag-capture-cta__btn" onClick={onCaptureClick}>
+            Get the pack
+          </button>
+        </div>
       )}
     </div>
   )
