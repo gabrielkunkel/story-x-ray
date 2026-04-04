@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { getActiveStoryId } from '../services/storage'
+import { loadExampleStory } from '../data/exampleStory'
 
 export default function StartPage() {
   const navigate = useNavigate()
   const activeId = getActiveStoryId()
 
   function handleLoadExample() {
-    alert('Example stories coming soon!')
+    const id = loadExampleStory()
+    navigate(`/story/${id}`)
   }
 
   return (

@@ -731,6 +731,22 @@ textarea {
   color: var(--accent);
 }
 
+.board-header__action {
+  font-size: 12px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.import-error {
+  font-size: 13px;
+  color: #e53e3e;
+  padding: 6px 16px;
+  background: rgba(229, 62, 62, 0.06);
+  border-bottom: 1px solid rgba(229, 62, 62, 0.2);
+  margin: 0;
+  flex-shrink: 0;
+}
+
 /* ── Diagnostics Panel ────────────────────────────────────── */
 
 .diagnostics-panel {

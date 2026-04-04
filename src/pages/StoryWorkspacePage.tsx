@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
 import type { Story, Dimension } from '../types/story'
 import { runDiagnostics } from '../utils/diagnostics'
+import { exportStoryAsJSON, exportStoryAsMarkdown } from '../utils/export'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import CardEditor from '../components/CardEditor'
@@ -27,6 +28,7 @@ export default function StoryWorkspacePage() {
   const [activeStepNumber, setActiveStepNumber] = useState<number | null>(null)
   const [showGraph, setShowGraph] = useState(true)
   const [showDiagnostics, setShowDiagnostics] = useState(false)
+  const [importError, setImportError] = useState<string | null>(null)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
     setStory(updatedStory)
@@ -82,6 +84,23 @@ export default function StoryWorkspacePage() {
     })
   }
 
+  async function handleImportJSON(file: File) {
+    setImportError(null)
+    try {
+      const text = await file.text()
+      const parsed = JSON.parse(text)
+      if (!parsed.title || !Array.isArray(parsed.steps)) {
+        setImportError('Invalid story file — missing required fields.')
+        return
+      }
+      const importedStory: Story = { ...parsed, id: crypto.randomUUID() }
+      saveStory(importedStory)
+      navigate(`/story/${importedStory.id}`)
+    } catch {
+      setImportError('Could not read file. Make sure it is a valid Story X-Ray JSON export.')
+    }
+  }
+
   return (
     <div className="workspace">
       <BoardHeader
@@ -91,7 +110,14 @@ export default function StoryWorkspacePage() {
         showDiagnostics={showDiagnostics}
         diagnosticCount={diagnostics.length}
         onToggleDiagnostics={() => setShowDiagnostics(v => !v)}
+        onExportJSON={() => exportStoryAsJSON(story)}
+        onExportMarkdown={() => exportStoryAsMarkdown(story)}
+        onImportJSON={handleImportJSON}
       />
+
+      {importError && (
+        <p className="import-error">{importError}</p>
+      )}
 
       <div className="workspace__body">
         <div className="workspace__board">
