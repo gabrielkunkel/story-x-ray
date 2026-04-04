@@ -298,3 +298,267 @@ textarea {
   font-style: italic;
   margin-top: 16px;
 }
+
+/* ── Story Card ───────────────────────────────────────────── */
+
+.story-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  position: relative;
+
+  &:hover {
+    border-color: var(--accent-border);
+    background: var(--accent-bg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.story-card--active {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.story-card__number {
+  font: 700 11px/1 var(--mono);
+  color: var(--accent);
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.story-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-card__label {
+  font: 600 13px/1.3 var(--sans);
+  color: var(--text-h);
+  margin-bottom: 3px;
+}
+
+.story-card__purpose {
+  font: 400 11px/1.4 var(--sans);
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.story-card__filled {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ── Act Column ───────────────────────────────────────────── */
+
+.act-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+  flex: 1;
+}
+
+.act-column__header {
+  font: 700 11px/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 4px 2px 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.act-column__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Card Editor ──────────────────────────────────────────── */
+
+.card-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  width: 320px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.card-editor__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-editor__step-num {
+  font: 700 11px/1 var(--mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-editor__label {
+  font-size: 1.1rem;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.card-editor__purpose {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.card-editor__hint {
+  font-size: 13px;
+  color: var(--text);
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 4px 0;
+    list-style: none;
+
+    &::before {
+      content: '▸ ';
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &[open] summary::before {
+    content: '▾ ';
+  }
+
+  p {
+    margin-top: 8px;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: var(--accent-bg);
+    border-radius: 6px;
+    border: 1px solid var(--accent-border);
+  }
+}
+
+.card-editor__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Board Header ─────────────────────────────────────────── */
+
+.board-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.board-header__back {
+  padding: 6px 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.board-header__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  margin: 0;
+}
+
+/* ── Workspace ────────────────────────────────────────────── */
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.workspace-error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 48px 24px;
+}
+
+.workspace__body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.workspace__board {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(170px, 1fr));
+  gap: 16px;
+  min-width: 720px;
+}
+
+@media (max-width: 768px) {
+  .workspace__body {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .workspace__board {
+    overflow: visible;
+  }
+
+  .card-editor {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
