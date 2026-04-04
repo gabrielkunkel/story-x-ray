@@ -2,7 +2,7 @@
 
 ## Current Status
 - Milestone: 1.0 MVP
-- Active Phase: None (ready to start Phase 6)
+- Active Phase: None (ready to start Phase 7)
 - Last updated: 2026-04-04
 
 ## Completed Phases
@@ -16,6 +16,8 @@
   - Recharts LineChart, 4 target (dashed) + 4 actual (solid) lines, hover→card sync, graph toggle
 - **Phase 5 — Diagnostics** (2026-04-04) — commit `9189347`
   - Pure diagnostic engine (4 rules), DiagnosticsPanel with step chips, ⚠ toggle in BoardHeader
+- **Phase 6 — Export & Example Story** (2026-04-04) — commit `568eaee`
+  - JSON + Markdown export, JSON import with error handling, Romeo & Juliet example story
 
 ## In Progress
 _(none)_
