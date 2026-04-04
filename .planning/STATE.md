@@ -14,7 +14,7 @@
   - ScoreInput component, 4 dimensions per card, delta with color coding, localStorage persistence
 - **Phase 4 — Waveform Graph** (2026-04-04) — commit `8eaa928`
   - Recharts LineChart, 4 target (dashed) + 4 actual (solid) lines, hover→card sync, graph toggle
-- **Phase 5 — Diagnostics** (2026-04-04) — commit TBD
+- **Phase 5 — Diagnostics** (2026-04-04) — commit `9189347`
   - Pure diagnostic engine (4 rules), DiagnosticsPanel with step chips, ⚠ toggle in BoardHeader
 
 ## In Progress
