@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
-import type { Story } from '../types/story'
+import type { Story, Dimension } from '../types/story'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import CardEditor from '../components/CardEditor'
@@ -45,24 +45,34 @@ export default function StoryWorkspacePage() {
 
   function handleBeatTextChange(value: string) {
     if (activeStepNumber === null) return
-    const updatedStory: Story = {
+    updateAndSave({
       ...story!,
       steps: story!.steps.map(s =>
         s.stepNumber === activeStepNumber ? { ...s, beatText: value } : s
       ),
-    }
-    updateAndSave(updatedStory)
+    })
   }
 
   function handleNotesChange(value: string) {
     if (activeStepNumber === null) return
-    const updatedStory: Story = {
+    updateAndSave({
       ...story!,
       steps: story!.steps.map(s =>
         s.stepNumber === activeStepNumber ? { ...s, notes: value } : s
       ),
-    }
-    updateAndSave(updatedStory)
+    })
+  }
+
+  function handleScoreChange(dimension: Dimension, value: number) {
+    if (activeStepNumber === null) return
+    updateAndSave({
+      ...story!,
+      steps: story!.steps.map(s =>
+        s.stepNumber === activeStepNumber
+          ? { ...s, actualScores: { ...s.actualScores, [dimension]: value } }
+          : s
+      ),
+    })
   }
 
   return (
@@ -91,6 +101,7 @@ export default function StoryWorkspacePage() {
             step={activeStep}
             onBeatTextChange={handleBeatTextChange}
             onNotesChange={handleNotesChange}
+            onScoreChange={handleScoreChange}
           />
         )}
       </div>

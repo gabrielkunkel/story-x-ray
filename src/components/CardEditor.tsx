@@ -1,13 +1,17 @@
+import type { Dimension, StoryStep } from '../types/story'
 import { STEP_HINTS } from '../data/steps'
-import type { StoryStep } from '../types/story'
+import ScoreInput from './ScoreInput'
+
+const DIMENSIONS: Dimension[] = ['connection', 'pressure', 'hope', 'stability']
 
 interface Props {
   step: StoryStep
   onBeatTextChange: (value: string) => void
   onNotesChange: (value: string) => void
+  onScoreChange: (dimension: Dimension, value: number) => void
 }
 
-export default function CardEditor({ step, onBeatTextChange, onNotesChange }: Props) {
+export default function CardEditor({ step, onBeatTextChange, onNotesChange, onScoreChange }: Props) {
   const hint = STEP_HINTS[step.stepNumber]
 
   return (
@@ -25,6 +29,19 @@ export default function CardEditor({ step, onBeatTextChange, onNotesChange }: Pr
           <p>{hint}</p>
         </details>
       )}
+
+      <div className="card-editor__scores">
+        <div className="card-editor__scores-heading">Scores</div>
+        {DIMENSIONS.map(dim => (
+          <ScoreInput
+            key={dim}
+            dimension={dim}
+            actual={step.actualScores[dim]}
+            target={step.targetScores[dim]}
+            onChange={val => onScoreChange(dim, val)}
+          />
+        ))}
+      </div>
 
       <div className="card-editor__fields">
         <div className="field">
