@@ -22,9 +22,11 @@
   - Beehiiv integration (placeholder), 5 triggers, dismissible modal, session/localStorage guards
 - **Phase 8 — PWA Polish & Hardening** (2026-04-04) — commit `d7cf16f`
   - README rewritten, mobile header polish, empty state hint, production build verified
+- **Phase 9 — Board View Controls** (2026-04-05) — commit `36eea96`
+  - Grid/list view toggle + beat text preview toggle, both persisted to localStorage
 
 ## In Progress
-- **Milestone v1.1** roadmap created — Phase 9 ready to plan
+- **Milestone v1.1** — Phase 10 (Step Examples) next
 
 ## Decisions Log
 | Date | Decision | Rationale |

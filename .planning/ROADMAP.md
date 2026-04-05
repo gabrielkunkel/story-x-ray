@@ -72,7 +72,7 @@ Plans:
 
 **Milestone Goal:** Improve how writers see and interact with their story by adding a single-column view, toggleable beat previews, and richer per-step fiction examples.
 
-- [ ] **Phase 9: Board View Controls** - View toggle (4-column / single-column) and beat text preview toggle, both persisted
+- [x] **Phase 9: Board View Controls** - View toggle (4-column / single-column) and beat text preview toggle, both persisted
 - [ ] **Phase 10: Step Examples** - 2-3 fiction examples per step in the side editor, visually distinct from hint text
 
 ## Phase Details
@@ -118,7 +118,7 @@ Plans:
 | 6. Export & Example Story | v1.0 | - | Complete | 2026-04-04 |
 | 7. Email Capture | v1.0 | - | Complete | 2026-04-04 |
 | 8. PWA Polish & Hardening | v1.0 | - | Complete | 2026-04-04 |
-| 9. Board View Controls | v1.1 | 0/2 | Planning complete | - |
+| 9. Board View Controls | v1.1 | 2/2 | Complete | 2026-04-05 |
 | 10. Step Examples | v1.1 | 0/? | Not started | - |
 
 ## Future Milestone (Post-v1.1)
