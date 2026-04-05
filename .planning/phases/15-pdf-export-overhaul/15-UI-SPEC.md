@@ -37,8 +37,8 @@ Declared values (must be multiples of 4):
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| xs | 4px | Close-proximity inline gaps (e.g. button icon gap: 6px — see exception) |
-| sm | 8px | Tight groupings, button row gap |
+| xs | 4px | Close-proximity inline gaps |
+| sm | 8px | Tight groupings, button row gap (`PdfExportModal` action row: `gap: 8px`) |
 | md | 16px | Default element spacing, modal internal gap |
 | lg | 24px | Modal padding, section padding |
 | xl | 32px | Layout gaps |
@@ -46,7 +46,6 @@ Declared values (must be multiples of 4):
 | 3xl | 64px | Page-level spacing |
 
 Exceptions:
-- Button `gap: 6px` is the project-established pattern from `.btn-primary` and `.btn-ghost` — use 6px for icon-label gap inside buttons (not 4px or 8px)
 - Modal card padding: `24px 24px 20px` (matches `.story-info-modal` — use this as the pattern for `PdfExportModal`)
 - Overlay padding: 24px all sides (matches `.capture-overlay`)
 
