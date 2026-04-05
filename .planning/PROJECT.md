@@ -121,23 +121,49 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current Milestone: v1.3 Export Polish & Card UX
+## Current State
 
-**Goal:** Replace the broken single-page PDF with a real multi-page jsPDF table export, consolidate all exports into a single dropdown, and clean up list-view card presentation on wide screens.
+**Latest shipped version:** v1.3 Export Polish & Card UX (2026-04-05)
 
-**Target features:**
-- PDF overhaul: jsPDF + autoTable, multi-page table with Step/Label/Act/Beat Text/Notes/Actual Scores/Target/Delta columns; toggle to include or exclude scores
-- Export dropdown: single "Export ▾" menu housing PDF, Fountain, JSON, and Markdown — replaces individual export buttons
-- List view dot: hide the filled purple dot when the italic beat excerpt is visible (wide screens); keep on narrow screens where excerpt collapses
-- Italic positioning: beat excerpt right-aligns within remaining card space on full desktop
+The app is feature-complete through v1.3. All 17 phases shipped. Writers can:
+- Build and visualize a story on the 16-step board
+- Score each step across 4 emotional dimensions and see waveform + diagnostics
+- Export their story as PDF (with or without scores), Fountain, JSON, or Markdown — all from a single "Export ▾" dropdown
+- Install the app as a PWA
+
+**Next milestone:** Not yet defined. See `.planning/notes/` for captured ideas.
 
 ## Previous Milestones
 
-### v1.1 Writer Experience Polish (shipped 2026-04-05)
+<details>
+<summary>v1.3 Export Polish & Card UX (shipped 2026-04-05)</summary>
+
+**Goal:** Replace the broken single-page PDF with a real multi-page jsPDF table export, consolidate all exports into a single dropdown, and clean up list-view card presentation on wide screens.
+- jsPDF + autoTable PDF download (portrait 5-col and landscape 17-col with scores)
+- Single "Export ▾" dropdown replacing 4 individual export buttons
+- List view dot hidden on wide screens when excerpt visible; excerpt right-aligned
+
+[Full archive](.planning/milestones/v1.3-ROADMAP.md)
+</details>
+
+<details>
+<summary>v1.2 Story Identity & Export (shipped 2026-04-05)</summary>
+
+**Goal:** Give the story a name and author, add PDF and Fountain export.
+- Story title, author, genre in board header (localStorage persistent)
+- PDF export via browser print (later replaced in v1.3)
+- Fountain screenplay export
+- List view cards full-width with beat excerpt inline
+</details>
+
+<details>
+<summary>v1.1 Writer Experience Polish (shipped 2026-04-05)</summary>
+
 **Goal:** Improve how writers see and interact with their story by adding a single-column view, toggleable beat previews, and richer per-step fiction examples.
 - View toggle: 4-column board ↔ single-column list
 - Beat text preview toggle — italic ~80-char preview on every card
 - 2–3 fiction examples per step in the side form editor
+</details>
 
 ## Evolution
 

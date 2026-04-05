@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.3
 milestone_name: Export Polish & Card UX
-status: milestone_complete
-stopped_at: v1.3 complete — all 3 phases shipped (15, 16, 17)
-last_updated: "2026-04-05T23:30:00.000Z"
-last_activity: 2026-04-05 — v1.3 complete; PDF overhaul, export dropdown, list card polish shipped
+status: archived
+stopped_at: v1.3 archived — ready for new milestone
+last_updated: "2026-04-05T23:59:00.000Z"
+last_activity: 2026-04-05 — v1.3 archived; all phases verified and tagged
 progress:
   total_phases: 3
   completed_phases: 3

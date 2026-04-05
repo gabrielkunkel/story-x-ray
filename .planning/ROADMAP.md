@@ -5,7 +5,7 @@
 - ✅ **v1.0 MVP** - Phases 1-8 (shipped 2026-04-04)
 - ✅ **v1.1 Writer Experience Polish** - Phases 9-10 (shipped 2026-04-05)
 - ✅ **v1.2 Story Identity & Export** - Phases 11-14 (shipped 2026-04-05)
-- ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05)
+- ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05) — [archive](.planning/milestones/v1.3-ROADMAP.md)
 
 ## Phases
 
@@ -171,65 +171,6 @@ Plans:
 - [x] 14-01-PLAN.md — Fountain file serializer and export trigger
 
 </details>
-
-### 🚧 v1.3 Export Polish & Card UX (In Progress)
-
-**Milestone Goal:** Replace the broken single-page PDF with a real multi-page jsPDF table export, consolidate all exports into a single dropdown, and clean up list-view card presentation on wide screens.
-
-- [x] **Phase 15: PDF Export Overhaul** - jsPDF + autoTable generates a real downloadable multi-page PDF table with optional score columns
-- [x] **Phase 16: Export Dropdown** - A single "Export ▾" dropdown replaces all individual export buttons, housing PDF, Fountain, JSON, and Markdown
-- [x] **Phase 17: List View Card Polish** - Purple dot hides on wide screens when italic beat excerpt is visible; excerpt right-aligns within card space
-
-## Phase Details
-
-### Phase 15: PDF Export Overhaul
-**Goal**: Writers can download a real multi-page PDF table of their story — not a browser print dialog
-**Depends on**: Phase 14
-**Requirements**: PDF2-01, PDF2-02, PDF2-03, PDF2-04, PDF2-05, PDF2-06, PDF2-07
-**Success Criteria** (what must be TRUE):
-  1. Clicking the PDF export option downloads a .pdf file directly — no browser print dialog appears
-  2. The PDF opens with a header showing story title, author, genre, and export date
-  3. All 16 steps appear as table rows with Step, Label, Act, Beat Text, and Notes columns; empty cells are blank, not placeholder text
-  4. When "With Scores" is selected, the table gains Connection, Pressure, Hope, Stability, Target, and Delta columns per dimension
-  5. Column headers repeat on each page when the table spans multiple pages
-**Plans**: TBD
-
-Plans:
-- [ ] 15-01-PLAN.md — jsPDF + autoTable setup, table structure, header metadata
-- [ ] 15-02-PLAN.md — Score columns, multi-page rendering, "include scores" toggle
-
-**UI hint**: yes
-
-### Phase 16: Export Dropdown
-**Goal**: All export formats are accessible from a single "Export ▾" dropdown — no scattered individual buttons
-**Depends on**: Phase 15
-**Requirements**: EXP-01, EXP-02, EXP-03, EXP-04
-**Success Criteria** (what must be TRUE):
-  1. The board shows a single "Export ▾" button; all previously individual export buttons are gone
-  2. Opening the dropdown reveals exactly four items: PDF, Fountain (.fountain), JSON, Markdown
-  3. Clicking "PDF" opens a choice (modal or sub-menu) to select "With Scores" or "Without Scores" before generating
-  4. Clicking Fountain, JSON, or Markdown triggers the existing export immediately with no extra steps
-**Plans**: TBD
-
-Plans:
-- [ ] 16-01-PLAN.md — Export dropdown component and PDF score-choice modal
-
-**UI hint**: yes
-
-### Phase 17: List View Card Polish
-**Goal**: On wide screens the purple filled dot hides when the beat excerpt is visible, and the excerpt is right-aligned within the card
-**Depends on**: Phase 11
-**Requirements**: CARD-01, CARD-02, CARD-03
-**Success Criteria** (what must be TRUE):
-  1. On a wide-screen list view, cards with a beat excerpt visible do not show the purple filled dot
-  2. On a narrow-screen list view, the purple filled dot is still shown on cards that have beat content
-  3. On wide screens the italic beat excerpt is right-aligned within the available card space
-**Plans**: TBD
-
-Plans:
-- [ ] 17-01-PLAN.md — Dot visibility breakpoint logic and excerpt right-alignment
-
-**UI hint**: yes
 
 ---
 
