@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v1.0 MVP** - Phases 1-8 (shipped 2026-04-04)
-- 🚧 **v1.1 Writer Experience Polish** - Phases 9-10 (in progress)
+- ✅ **v1.1 Writer Experience Polish** - Phases 9-10 (shipped 2026-04-05)
 
 ## Phases
 
@@ -73,7 +73,7 @@ Plans:
 **Milestone Goal:** Improve how writers see and interact with their story by adding a single-column view, toggleable beat previews, and richer per-step fiction examples.
 
 - [x] **Phase 9: Board View Controls** - View toggle (4-column / single-column) and beat text preview toggle, both persisted
-- [ ] **Phase 10: Step Examples** - 2-3 fiction examples per step in the side editor, visually distinct from hint text
+- [x] **Phase 10: Step Examples** - 2-3 fiction examples per step in the side editor, visually distinct from hint text
 
 ## Phase Details
 
@@ -124,7 +124,7 @@ Plans:
 | 7. Email Capture | v1.0 | - | Complete | 2026-04-04 |
 | 8. PWA Polish & Hardening | v1.0 | - | Complete | 2026-04-04 |
 | 9. Board View Controls | v1.1 | 2/2 | Complete | 2026-04-05 |
-| 10. Step Examples | v1.1 | 0/2 | Not started | - |
+| 10. Step Examples | v1.1 | 2/2 | Complete | 2026-04-05 |
 
 ## Future Milestone (Post-v1.1)
 

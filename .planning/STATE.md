@@ -1,9 +1,9 @@
 # Story X-Ray — Project State
 
 ## Current Status
-- Milestone: v1.1 Writer Experience Polish
-- Active Phase: Phase 9 — Board View Controls (ready to plan)
-- Last updated: 2026-04-04
+- Milestone: v1.1 Writer Experience Polish — SHIPPED 2026-04-05
+- Active Phase: None — all phases complete
+- Last updated: 2026-04-05
 
 ## Completed Phases
 - **Phase 1 — App Foundation** (2026-04-04) — commit `fe71e01`
@@ -25,8 +25,11 @@
 - **Phase 9 — Board View Controls** (2026-04-05) — commit `36eea96`
   - Grid/list view toggle + beat text preview toggle, both persisted to localStorage
 
+- **Phase 10 — Step Examples** (2026-04-05) — commit `55dc382`
+  - 48 fiction examples (16 steps × 3) in CardEditor collapsible; teal/amber palette
+
 ## In Progress
-- **Milestone v1.1** — Phase 10 (Step Examples) next
+- None — v1.1 milestone complete
 
 ## Decisions Log
 | Date | Decision | Rationale |
