@@ -148,6 +148,8 @@ export default function StoryWorkspacePage() {
     setCaptureContext('diagnostics')
   }
 
+  const hasAnyBeatText = story.steps.some(s => s.beatText.trim().length > 0)
+
   return (
     <div className="workspace">
       <BoardHeader
@@ -168,6 +170,9 @@ export default function StoryWorkspacePage() {
 
       <div className="workspace__body">
         <div className="workspace__board">
+          {!hasAnyBeatText && (
+            <p className="board-empty-hint">Click any card to start writing your story.</p>
+          )}
           <div className="board-grid">
             {ACT_ORDER.map(act => (
               <ActColumn

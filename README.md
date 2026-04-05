@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Story X-Ray
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**See the shape of your story. Find what comes next.**
 
-Currently, two official plugins are available:
+A local-first PWA that helps fiction writers construct, visualize, and refine stories using a 16-step architecture board. No account needed. Works offline. Installable on desktop and mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **16-card board** across 4 act columns — each card maps to a structural step
+- **Beat editor** — write what happens, add notes, expand the hint for guidance
+- **4 emotional dimensions** — Connection, Pressure, Hope, Stability — scored 1–10
+- **Target vs actual comparison** — see how your story's emotional shape differs from the ideal
+- **Waveform graph** — 8-line chart (target + actual per dimension) across all 16 steps
+- **Structural diagnostics** — rule-based warnings (flat zones, weak ruptures, false safety, unresolved endings)
+- **Export** — download as JSON (reimportable) or Markdown
+- **Import** — restore any exported story JSON
+- **Example story** — load a pre-scored Romeo & Juliet to see the system in action
+- **PWA** — installable from Chrome/Safari, works fully offline
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Local development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build      # TypeScript check + Vite production build
+npm run preview    # Preview the production build locally
 ```
+
+## Enable Beehiiv email capture
+
+Set your publication ID in `src/config/beehiiv.ts`:
+
+```ts
+export const BEEHIIV_PUBLICATION_ID = 'pub_your-id-here'
+```
+
+Find it at app.beehiiv.com → Settings → Publication. Leave empty to run in dev mode (submissions logged to console only).
+
+---
+
+## Tech stack
+
+- React 19 + TypeScript
+- Vite 8
+- React Router 7
+- Recharts
+- vite-plugin-pwa (Workbox)
+- localStorage — no backend, no auth
+
+## Project structure
+
+```
+src/
+  components/    UI components (BoardHeader, StoryCard, CardEditor, WaveformGraph, …)
+  config/        App configuration (Beehiiv publication ID)
+  data/          Static step definitions, example story
+  pages/         StartPage, StorySetupPage, StoryWorkspacePage
+  services/      localStorage read/write
+  types/         TypeScript interfaces (Story, StoryStep, …)
+  utils/         Pure functions (diagnostics, export, email capture)
+.planning/       GSD roadmap, phase plans, state
+```
+
+---
+
+## License
+
+MIT

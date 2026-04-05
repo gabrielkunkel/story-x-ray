@@ -561,6 +561,35 @@ textarea {
     border-left: none;
     border-top: 1px solid var(--border);
   }
+
+  .board-header {
+    overflow-x: auto;
+    gap: 4px;
+    padding: 8px 10px;
+  }
+
+  .board-header__action {
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+
+  .board-header__graph-toggle,
+  .board-header__diag-toggle {
+    font-size: 14px;
+    padding: 4px 7px;
+  }
+
+  .capture-modal {
+    padding: 20px 18px 16px;
+  }
+}
+
+.board-empty-hint {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.5;
+  margin-bottom: 12px;
+  font-style: italic;
 }
 
 /* ── Score Input ──────────────────────────────────────────── */
