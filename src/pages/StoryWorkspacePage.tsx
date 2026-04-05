@@ -17,6 +17,7 @@ import WaveformGraph from '../components/WaveformGraph'
 import DiagnosticsPanel from '../components/DiagnosticsPanel'
 import EmailCaptureModal, { type CaptureContext } from '../components/EmailCaptureModal'
 import StoryInfoModal from '../components/StoryInfoModal'
+import PrintLayout from '../components/PrintLayout'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -160,6 +161,10 @@ export default function StoryWorkspacePage() {
     updateAndSave({ ...story!, ...patch })
   }
 
+  function handleExportPDF() {
+    window.print()
+  }
+
   function handleExportMarkdown() {
     if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
@@ -197,6 +202,7 @@ export default function StoryWorkspacePage() {
         showBeatPreview={showBeatPreview}
         onToggleBeatPreview={handleToggleBeatPreview}
         onEditStoryInfo={() => setShowStoryInfo(true)}
+        onExportPDF={handleExportPDF}
       />
 
       {importError && (
@@ -292,6 +298,8 @@ export default function StoryWorkspacePage() {
           onClose={() => setShowStoryInfo(false)}
         />
       )}
+
+      <PrintLayout story={story} />
     </div>
   )
 }
