@@ -5,7 +5,7 @@
 - ✅ **v1.0 MVP** - Phases 1-8 (shipped 2026-04-04)
 - ✅ **v1.1 Writer Experience Polish** - Phases 9-10 (shipped 2026-04-05)
 - ✅ **v1.2 Story Identity & Export** - Phases 11-14 (shipped 2026-04-05)
-- 🚧 **v1.3 Export Polish & Card UX** - Phases 15-17 (in progress)
+- ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05)
 
 ## Phases
 
@@ -176,9 +176,9 @@ Plans:
 
 **Milestone Goal:** Replace the broken single-page PDF with a real multi-page jsPDF table export, consolidate all exports into a single dropdown, and clean up list-view card presentation on wide screens.
 
-- [ ] **Phase 15: PDF Export Overhaul** - jsPDF + autoTable generates a real downloadable multi-page PDF table with optional score columns
-- [ ] **Phase 16: Export Dropdown** - A single "Export ▾" dropdown replaces all individual export buttons, housing PDF, Fountain, JSON, and Markdown
-- [ ] **Phase 17: List View Card Polish** - Purple dot hides on wide screens when italic beat excerpt is visible; excerpt right-aligns within card space
+- [x] **Phase 15: PDF Export Overhaul** - jsPDF + autoTable generates a real downloadable multi-page PDF table with optional score columns
+- [x] **Phase 16: Export Dropdown** - A single "Export ▾" dropdown replaces all individual export buttons, housing PDF, Fountain, JSON, and Markdown
+- [x] **Phase 17: List View Card Polish** - Purple dot hides on wide screens when italic beat excerpt is visible; excerpt right-aligns within card space
 
 ## Phase Details
 
@@ -251,6 +251,6 @@ Plans:
 | 12. Story Identity | v1.2 | 1/1 | Complete | 2026-04-05 |
 | 13. PDF Export | v1.2 | 1/1 | Complete | 2026-04-05 |
 | 14. Fountain Export | v1.2 | 1/1 | Complete | 2026-04-05 |
-| 15. PDF Export Overhaul | v1.3 | 0/2 | Not started | - |
-| 16. Export Dropdown | v1.3 | 0/1 | Not started | - |
-| 17. List View Card Polish | v1.3 | 0/1 | Not started | - |
+| 15. PDF Export Overhaul | v1.3 | 2/2 | Complete | 2026-04-05 |
+| 16. Export Dropdown | v1.3 | 1/1 | Complete | 2026-04-05 |
+| 17. List View Card Polish | v1.3 | 1/1 | Complete | 2026-04-05 |
