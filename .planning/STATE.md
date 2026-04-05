@@ -1,11 +1,11 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.3
-milestone_name: Export Polish & Card UX
-status: archived
-stopped_at: v1.3 archived — ready for new milestone
+milestone: v1.4
+milestone_name: PWA Install Prompt
+status: defining_requirements
+stopped_at: Milestone initialized — defining requirements
 last_updated: "2026-04-05T23:59:00.000Z"
-last_activity: 2026-04-05 — v1.3 archived; all phases verified and tagged
+last_activity: 2026-04-05 — v1.4 started; PWA install prompt milestone
 progress:
   total_phases: 3
   completed_phases: 3

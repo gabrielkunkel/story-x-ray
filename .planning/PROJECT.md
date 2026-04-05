@@ -121,17 +121,16 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current State
+## Current Milestone: v1.4 PWA Install Prompt
 
-**Latest shipped version:** v1.3 Export Polish & Card UX (2026-04-05)
+**Goal:** Guide first-time Chrome users to install the app using the browser's native install flow, with progressive re-prompting for users who dismiss.
 
-The app is feature-complete through v1.3. All 17 phases shipped. Writers can:
-- Build and visualize a story on the 16-step board
-- Score each step across 4 emotional dimensions and see waveform + diagnostics
-- Export their story as PDF (with or without scores), Fountain, JSON, or Markdown — all from a single "Export ▾" dropdown
-- Install the app as a PWA
-
-**Next milestone:** Not yet defined. See `.planning/notes/` for captured ideas.
+**Target features:**
+- Chrome-only install callout triggered after the first story is created
+- Callout points to the URL bar install button with a brief explanation (add to desktop or apps folder)
+- Dismissing re-shows the prompt at progressively longer intervals: 3 days → 1 week → 1 month
+- Non-Chrome browsers: no prompt, no messaging
+- Once installed, never shown again
 
 ## Previous Milestones
 
