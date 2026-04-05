@@ -393,6 +393,10 @@ textarea {
   gap: 12px 20px;
 }
 
+.story-card--list .story-card__filled {
+  display: none;
+}
+
 .story-card__beat-quote {
   font: italic 400 13px/1.5 var(--sans);
   color: var(--text);
@@ -400,11 +404,20 @@ textarea {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  text-align: right;
 }
 
 @media (max-width: 520px) {
   .story-card--list {
     grid-template-columns: 1fr;
+  }
+
+  .story-card--list .story-card__filled {
+    display: block;
+  }
+
+  .story-card__beat-quote {
+    text-align: left;
   }
 }
 
