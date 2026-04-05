@@ -2,7 +2,7 @@
 
 ## Current Status
 - Milestone: 1.0 MVP
-- Active Phase: None (ready to start Phase 8)
+- Active Phase: None — Milestone 1.0 MVP COMPLETE
 - Last updated: 2026-04-04
 
 ## Completed Phases
@@ -20,6 +20,8 @@
   - JSON + Markdown export, JSON import with error handling, Romeo & Juliet example story
 - **Phase 7 — Email Capture** (2026-04-04) — commit `205763a`
   - Beehiiv integration (placeholder), 5 triggers, dismissible modal, session/localStorage guards
+- **Phase 8 — PWA Polish & Hardening** (2026-04-04) — commit `d7cf16f`
+  - README rewritten, mobile header polish, empty state hint, production build verified
 
 ## In Progress
 _(none)_
