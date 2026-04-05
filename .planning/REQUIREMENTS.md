@@ -1,42 +1,46 @@
 # Story X-Ray — Requirements
 
-## Milestone: v1.1 Writer Experience Polish
-**Goal:** Improve how writers see and interact with their story by adding a single-column view, toggleable beat previews, and richer per-step fiction examples.
+## Milestone: v1.3 Export Polish & Card UX
+**Goal:** Replace the broken single-page PDF with a real multi-page jsPDF table export, consolidate all exports into a single dropdown, and clean up list-view card presentation on wide screens.
 
 ---
 
-## View Toggle (VIEW)
-- [ ] **VIEW-01**: User can switch between 4-column board view and single-column list view
-- [ ] **VIEW-02**: Single-column view shows all 16 cards stacked vertically in step order
-- [ ] **VIEW-03**: Click-to-open-editor behavior is identical in both views (click card → open side panel)
-- [ ] **VIEW-04**: View preference persists in localStorage across sessions
+## PDF Export Overhaul (PDF2)
+- [ ] **PDF2-01**: User can trigger a PDF export from the export dropdown with an option to include or exclude scores
+- [ ] **PDF2-02**: Generated PDF is a real downloadable file (not a browser print dialog), produced by jsPDF + autoTable
+- [ ] **PDF2-03**: PDF header shows story title, author, genre, and export date
+- [ ] **PDF2-04**: PDF body is a table with columns: Step #, Label, Act, Beat Text, Notes (always shown)
+- [ ] **PDF2-05**: When "include scores" is selected, the table adds columns: Connection, Pressure, Hope, Stability (actual), Target values, and Delta (actual − target) per dimension
+- [ ] **PDF2-06**: All 16 steps appear in the table; empty beat text and notes cells are left blank
+- [ ] **PDF2-07**: Table spans multiple pages cleanly with column headers repeated on each page
 
-## Beat Preview (PREVIEW)
-- [ ] **PREVIEW-01**: User can toggle beat text preview on/off from the board header
-- [ ] **PREVIEW-02**: When preview is on, each card shows up to ~80 chars of beat text in italics
-- [ ] **PREVIEW-03**: Cards with no beat text show no preview placeholder when preview is on
-- [ ] **PREVIEW-04**: Preview toggle state persists in localStorage across sessions
+## Export Dropdown (EXP)
+- [ ] **EXP-01**: A single "Export ▾" dropdown button replaces all individual export buttons on the board
+- [ ] **EXP-02**: The dropdown contains four items: "PDF", "Fountain (.fountain)", "JSON", "Markdown"
+- [ ] **EXP-03**: PDF item opens a sub-choice or modal to select "With Scores" vs "Without Scores" before generating
+- [ ] **EXP-04**: Fountain, JSON, and Markdown items trigger their existing export logic unchanged
 
-## Step Examples (EXAMPLES)
-- [ ] **EXAMPLES-01**: Each step's side editor shows 2–3 examples from popular fiction
-- [ ] **EXAMPLES-02**: Each step includes at least 1 original made-up example
-- [ ] **EXAMPLES-03**: Examples are visually distinct from the existing step hint text
+## List View Card Polish (CARD)
+- [ ] **CARD-01**: In list view on wide screens (where the italic beat excerpt is visible to the right), the purple filled dot is hidden
+- [ ] **CARD-02**: On narrow screens (where the beat excerpt collapses below the step info), the purple dot is shown as before to signal card has content
+- [ ] **CARD-03**: On wide screens, the italic beat excerpt is right-aligned within the remaining card space (flex end / text-align right)
 
 ---
 
 ## Deferred (Future Milestones)
 - Multiple story management (story list, rename, delete)
 - Advanced 28-step mode
-- Genre-specific target presets
+- Genre-specific target score presets
 - Cloud sync / accounts
 - AI-assisted beat suggestions
 - Electron desktop wrapper
-- Screenplay import
+- Collaborative annotations
 
-## Out of Scope for v1.1
-- Inline card editing (no side panel) — keep consistent interaction model
-- Examples shown on the card itself — side form only keeps cards clean
-- Per-step example customization by user
+## Out of Scope for v1.3
+- Changing Fountain, JSON, or Markdown export content/format
+- PDF page-size or margin customization
+- Removing the dot from board (grid) view cards
+- CSV/spreadsheet export
 
 ---
 
@@ -44,14 +48,17 @@
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| VIEW-01 | Phase 9 | Pending |
-| VIEW-02 | Phase 9 | Pending |
-| VIEW-03 | Phase 9 | Pending |
-| VIEW-04 | Phase 9 | Pending |
-| PREVIEW-01 | Phase 9 | Pending |
-| PREVIEW-02 | Phase 9 | Pending |
-| PREVIEW-03 | Phase 9 | Pending |
-| PREVIEW-04 | Phase 9 | Pending |
-| EXAMPLES-01 | Phase 10 | Pending |
-| EXAMPLES-02 | Phase 10 | Pending |
-| EXAMPLES-03 | Phase 10 | Pending |
+| PDF2-01 | Phase 15 | Pending |
+| PDF2-02 | Phase 15 | Pending |
+| PDF2-03 | Phase 15 | Pending |
+| PDF2-04 | Phase 15 | Pending |
+| PDF2-05 | Phase 15 | Pending |
+| PDF2-06 | Phase 15 | Pending |
+| PDF2-07 | Phase 15 | Pending |
+| EXP-01 | Phase 16 | Pending |
+| EXP-02 | Phase 16 | Pending |
+| EXP-03 | Phase 16 | Pending |
+| EXP-04 | Phase 16 | Pending |
+| CARD-01 | Phase 17 | Pending |
+| CARD-02 | Phase 17 | Pending |
+| CARD-03 | Phase 17 | Pending |
