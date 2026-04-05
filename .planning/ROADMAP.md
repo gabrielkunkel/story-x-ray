@@ -87,7 +87,12 @@ Plans:
   3. User can click a preview toggle in the board header to show or hide beat text on every card
   4. When preview is on, cards with beat text show an italic excerpt of up to ~80 characters; cards without beat text show nothing
   5. Both the view preference and the preview toggle state survive a page refresh
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Grid/list view toggle with single-column layout
+- [ ] 09-02-PLAN.md — Beat text preview toggle on story cards
+
 **UI hint**: yes
 
 ### Phase 10: Step Examples
@@ -113,7 +118,7 @@ Plans:
 | 6. Export & Example Story | v1.0 | - | Complete | 2026-04-04 |
 | 7. Email Capture | v1.0 | - | Complete | 2026-04-04 |
 | 8. PWA Polish & Hardening | v1.0 | - | Complete | 2026-04-04 |
-| 9. Board View Controls | v1.1 | 0/? | Not started | - |
+| 9. Board View Controls | v1.1 | 0/2 | Planning complete | - |
 | 10. Step Examples | v1.1 | 0/? | Not started | - |
 
 ## Future Milestone (Post-v1.1)
