@@ -218,6 +218,7 @@ export default function StoryWorkspacePage() {
                             setActiveStepNumber(prev => prev === step.stepNumber ? null : step.stepNumber)
                           }
                           showBeatPreview={showBeatPreview}
+                          variant="list"
                         />
                       ))}
                     </div>

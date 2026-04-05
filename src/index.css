@@ -384,6 +384,30 @@ textarea {
   max-width: 100%;
 }
 
+/* ── List variant card layout ─────────────────────────────── */
+
+.story-card--list {
+  display: grid;
+  grid-template-columns: minmax(160px, 280px) 1fr;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.story-card__beat-quote {
+  font: italic 400 13px/1.5 var(--sans);
+  color: var(--text);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 520px) {
+  .story-card--list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Act Column ───────────────────────────────────────────── */
 
 .act-column {
@@ -669,7 +693,6 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 600px;
 }
 
 .board-list__section {
