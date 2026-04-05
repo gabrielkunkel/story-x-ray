@@ -1,5 +1,5 @@
 import type { Dimension, StoryStep } from '../types/story'
-import { STEP_HINTS } from '../data/steps'
+import { STEP_HINTS, STEP_EXAMPLES } from '../data/steps'
 import ScoreInput from './ScoreInput'
 
 const DIMENSIONS: Dimension[] = ['connection', 'pressure', 'hope', 'stability']
@@ -13,6 +13,7 @@ interface Props {
 
 export default function CardEditor({ step, onBeatTextChange, onNotesChange, onScoreChange }: Props) {
   const hint = STEP_HINTS[step.stepNumber]
+  const examples = STEP_EXAMPLES[step.stepNumber]
 
   return (
     <aside className="card-editor">
@@ -27,6 +28,26 @@ export default function CardEditor({ step, onBeatTextChange, onNotesChange, onSc
         <details className="card-editor__hint">
           <summary>Writing hint</summary>
           <p>{hint}</p>
+        </details>
+      )}
+
+      {examples && examples.length > 0 && (
+        <details className="card-editor__examples">
+          <summary>Examples</summary>
+          <div className="card-editor__examples-list">
+            {examples.map((ex, i) => (
+              <div
+                key={i}
+                className={`example-item${ex.isOriginal ? ' example-item--original' : ''}`}
+              >
+                <div className="example-item__source">
+                  {ex.isOriginal && <span className="example-item__badge">Original</span>}
+                  {!ex.isOriginal && ex.source}
+                </div>
+                <p className="example-item__text">{ex.text}</p>
+              </div>
+            ))}
+          </div>
         </details>
       )}
 
