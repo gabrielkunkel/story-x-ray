@@ -41,8 +41,17 @@
 ---
 
 ## Traceability
-| REQ-ID | Phase |
-|--------|-------|
-| VIEW-01–04 | Phase 9 |
-| PREVIEW-01–04 | Phase 9 |
-| EXAMPLES-01–03 | Phase 10 |
+
+| REQ-ID | Phase | Status |
+|--------|-------|--------|
+| VIEW-01 | Phase 9 | Pending |
+| VIEW-02 | Phase 9 | Pending |
+| VIEW-03 | Phase 9 | Pending |
+| VIEW-04 | Phase 9 | Pending |
+| PREVIEW-01 | Phase 9 | Pending |
+| PREVIEW-02 | Phase 9 | Pending |
+| PREVIEW-03 | Phase 9 | Pending |
+| PREVIEW-04 | Phase 9 | Pending |
+| EXAMPLES-01 | Phase 10 | Pending |
+| EXAMPLES-02 | Phase 10 | Pending |
+| EXAMPLES-03 | Phase 10 | Pending |

@@ -2,7 +2,7 @@
 
 ## Current Status
 - Milestone: v1.1 Writer Experience Polish
-- Active Phase: Not started (defining requirements)
+- Active Phase: Phase 9 — Board View Controls (ready to plan)
 - Last updated: 2026-04-04
 
 ## Completed Phases
@@ -24,7 +24,7 @@
   - README rewritten, mobile header polish, empty state hint, production build verified
 
 ## In Progress
-_(none)_
+- **Milestone v1.1** roadmap created — Phase 9 ready to plan
 
 ## Decisions Log
 | Date | Decision | Rationale |
@@ -34,6 +34,8 @@ _(none)_
 | 2026-04-04 | Phase style: vertical slices | Each phase delivers thin but working end-to-end feature |
 | 2026-04-04 | PWA first, no Electron | Simpler MVP; Electron can be added post-validation |
 | 2026-04-04 | No AI in MVP | Deliberate positioning: construction tool, not AI tool |
+| 2026-04-04 | VIEW + PREVIEW combined into Phase 9 | Both touch BoardHeader and StoryCard layout — same components, same PR |
+| 2026-04-04 | EXAMPLES separate Phase 10 | Content data file (16×3 entries) plus UI wiring is distinct from layout toggles |
 
 ## Notes
 - README_AI.md in project root is the canonical product spec — read it for full context
