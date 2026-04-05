@@ -1,3 +1,19 @@
+---
+gsd_state_version: 1.0
+milestone: v1.3
+milestone_name: Export Polish & Card UX
+status: ready_to_plan
+stopped_at: Phase 15 complete — ready to plan Phase 16 (Export Dropdown)
+last_updated: "2026-04-05T23:15:00.000Z"
+last_activity: 2026-04-05 — Phase 15 complete; jsPDF portrait + landscape PDF export shipped
+progress:
+  total_phases: 3
+  completed_phases: 1
+  total_plans: 2
+  completed_plans: 2
+  percent: 67
+---
+
 # Story X-Ray — Project State
 
 ## Project Reference
@@ -19,6 +35,7 @@ Progress: [██████████░░░░░░░░░░] 50% (14
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 10 (phases 9-14)
 - Average duration: not tracked
 - Total execution time: not tracked
@@ -35,6 +52,7 @@ Progress: [██████████░░░░░░░░░░] 50% (14
 | 14 | 1 | - | - |
 
 **Recent Trend:**
+
 - Trend: Stable
 
 ## Accumulated Context
@@ -56,6 +74,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-05
-Stopped at: Roadmap created for v1.3 (Phases 15-17). No plans written yet.
-Resume file: None
+Last session: 2026-04-05T20:17:09.590Z
+Stopped at: Phase 15 UI-SPEC approved
+Resume file: .planning/phases/15-pdf-export-overhaul/15-UI-SPEC.md

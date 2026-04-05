@@ -1,9 +1,9 @@
 ---
 phase: 15
 slug: pdf-export-overhaul
-status: draft
-nyquist_compliant: false
-wave_0_complete: false
+status: complete
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-04-05
 ---
 
@@ -38,13 +38,13 @@ created: 2026-04-05
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 15-01-01 | 01 | 0 | PDF2-01 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-01-02 | 01 | 1 | PDF2-02 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-01-03 | 01 | 1 | PDF2-03 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-01-04 | 01 | 1 | PDF2-04 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-02-01 | 02 | 1 | PDF2-05 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-02-02 | 02 | 1 | PDF2-06 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
-| 15-02-03 | 02 | 1 | PDF2-07 | — | N/A | manual | `npm run build` | ❌ W0 | ⬜ pending |
+| 15-01-01 | 01 | 0 | PDF2-01 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-01-02 | 01 | 1 | PDF2-02 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-01-03 | 01 | 1 | PDF2-03 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-01-04 | 01 | 1 | PDF2-04 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-02-01 | 02 | 1 | PDF2-05 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-02-02 | 02 | 1 | PDF2-06 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
+| 15-02-03 | 02 | 1 | PDF2-07 | — | N/A | manual | `npm run build` | ✅ | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -52,7 +52,7 @@ created: 2026-04-05
 
 ## Wave 0 Requirements
 
-- [ ] `npm install jspdf jspdf-autotable` — packages not yet in node_modules
+- [x] `npm install jspdf jspdf-autotable` — installed in Plan 01
 
 *No test file stubs needed — no automated test infrastructure in this project.*
 
@@ -74,11 +74,11 @@ created: 2026-04-05
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 15s (build check)
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags
+- [x] Feedback latency < 15s (build check)
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** complete — 2026-04-05
