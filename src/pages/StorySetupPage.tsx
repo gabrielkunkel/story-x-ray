@@ -7,6 +7,7 @@ import type { Story } from '../types/story'
 export default function StorySetupPage() {
   const navigate = useNavigate()
   const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState('')
   const [genre, setGenre] = useState('')
   const [logline, setLogline] = useState('')
   const [error, setError] = useState('')
@@ -20,6 +21,7 @@ export default function StorySetupPage() {
     const story: Story = {
       id: crypto.randomUUID(),
       title: title.trim(),
+      author: author.trim(),
       genre: genre.trim(),
       logline: logline.trim(),
       preset: '16-step',
@@ -52,6 +54,19 @@ export default function StorySetupPage() {
             autoFocus
           />
           {error && <p className="field-error">{error}</p>}
+        </div>
+
+        <div className="field">
+          <label htmlFor="author">
+            Author <span className="optional">(optional)</span>
+          </label>
+          <input
+            id="author"
+            type="text"
+            value={author}
+            onChange={e => setAuthor(e.target.value)}
+            placeholder="Your name or pen name"
+          />
         </div>
 
         <div className="field">

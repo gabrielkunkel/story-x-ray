@@ -25,7 +25,10 @@ export function saveStory(story: Story): void {
 }
 
 export function loadStory(id: string): Story | null {
-  return loadAllStories().find(s => s.id === id) ?? null;
+  const raw = loadAllStories().find(s => s.id === id) as (Omit<Story, 'author'> & { author?: string }) | undefined;
+  if (!raw) return null;
+  // Backfill author for stories created before Phase 12
+  return { ...raw, author: raw.author ?? '' };
 }
 
 export function deleteStory(id: string): void {

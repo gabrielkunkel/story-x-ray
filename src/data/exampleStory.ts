@@ -52,6 +52,7 @@ export function loadExampleStory(): string {
   const story: Story = {
     id,
     title: 'Romeo & Juliet (Example)',
+    author: 'William Shakespeare',
     genre: 'Tragedy',
     logline: 'Two star-crossed lovers defy their feuding families — and pay the ultimate price.',
     preset: '16-step',

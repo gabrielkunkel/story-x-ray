@@ -16,6 +16,7 @@ import CardEditor from '../components/CardEditor'
 import WaveformGraph from '../components/WaveformGraph'
 import DiagnosticsPanel from '../components/DiagnosticsPanel'
 import EmailCaptureModal, { type CaptureContext } from '../components/EmailCaptureModal'
+import StoryInfoModal from '../components/StoryInfoModal'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -44,6 +45,7 @@ export default function StoryWorkspacePage() {
   const [showDiagnostics, setShowDiagnostics] = useState(false)
   const [importError, setImportError] = useState<string | null>(null)
   const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
+  const [showStoryInfo, setShowStoryInfo] = useState(false)
   const act1CheckedRef = useRef(false)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
@@ -154,6 +156,10 @@ export default function StoryWorkspacePage() {
     exportStoryAsJSON(story!)
   }
 
+  function handleSaveStoryInfo(patch: Pick<Story, 'title' | 'author' | 'genre'>) {
+    updateAndSave({ ...story!, ...patch })
+  }
+
   function handleExportMarkdown() {
     if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
@@ -190,6 +196,7 @@ export default function StoryWorkspacePage() {
         onToggleView={handleToggleView}
         showBeatPreview={showBeatPreview}
         onToggleBeatPreview={handleToggleBeatPreview}
+        onEditStoryInfo={() => setShowStoryInfo(true)}
       />
 
       {importError && (
@@ -275,6 +282,14 @@ export default function StoryWorkspacePage() {
         <EmailCaptureModal
           context={captureContext}
           onClose={() => setCaptureContext(null)}
+        />
+      )}
+
+      {showStoryInfo && (
+        <StoryInfoModal
+          story={story}
+          onSave={handleSaveStoryInfo}
+          onClose={() => setShowStoryInfo(false)}
         />
       )}
     </div>

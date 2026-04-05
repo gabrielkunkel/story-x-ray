@@ -15,6 +15,7 @@ interface Props {
   onToggleView: () => void
   showBeatPreview: boolean
   onToggleBeatPreview: () => void
+  onEditStoryInfo: () => void
 }
 
 export default function BoardHeader({
@@ -31,6 +32,7 @@ export default function BoardHeader({
   onToggleView,
   showBeatPreview,
   onToggleBeatPreview,
+  onEditStoryInfo,
 }: Props) {
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -41,6 +43,14 @@ export default function BoardHeader({
         ←
       </button>
       <h1 className="board-header__title">{title}</h1>
+      <button
+        className="btn-ghost board-header__edit-title"
+        onClick={onEditStoryInfo}
+        title="Edit story info"
+        aria-label="Edit story title, author, and genre"
+      >
+        ✎
+      </button>
       <button className="btn-ghost board-header__action" onClick={onExportJSON} title="Export as JSON">
         ↓ JSON
       </button>

@@ -21,6 +21,7 @@ export interface StoryStep {
 export interface Story {
   id: string;                   // uuid v4 — use crypto.randomUUID()
   title: string;
+  author: string;               // optional, empty string if not set
   genre: string;                // optional, empty string if not set
   logline: string;              // optional, empty string if not set
   preset: '16-step';
