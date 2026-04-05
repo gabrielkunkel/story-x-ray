@@ -1176,6 +1176,42 @@ textarea {
   padding-top: 8px;
 }
 
+/* ── Export Dropdown ──────────────────────────────────────── */
+
+.export-dropdown {
+  position: relative;
+}
+
+.export-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  min-width: 130px;
+  z-index: 50;
+  padding: 4px 0;
+}
+
+.export-dropdown__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--border);
+  }
+}
+
 .board-header__edit-title {
   font-size: 14px;
   padding: 4px 8px;

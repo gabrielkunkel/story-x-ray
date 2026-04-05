@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ExportDropdown from './ExportDropdown'
 
 interface Props {
   title: string
@@ -55,18 +56,12 @@ export default function BoardHeader({
       >
         ✎
       </button>
-      <button className="btn-ghost board-header__action" onClick={onExportJSON} title="Export as JSON">
-        ↓ JSON
-      </button>
-      <button className="btn-ghost board-header__action" onClick={onExportMarkdown} title="Export as Markdown">
-        ↓ MD
-      </button>
-      <button className="btn-ghost board-header__action" onClick={onExportPDF} title="Export as PDF">
-        ↓ PDF
-      </button>
-      <button className="btn-ghost board-header__action" onClick={onExportFountain} title="Export as Fountain (screenplay)">
-        ↓ Fountain
-      </button>
+      <ExportDropdown
+        onExportPDF={onExportPDF}
+        onExportFountain={onExportFountain}
+        onExportJSON={onExportJSON}
+        onExportMarkdown={onExportMarkdown}
+      />
       <button className="btn-ghost board-header__action" onClick={() => fileInputRef.current?.click()} title="Import JSON">
         ↑
       </button>
