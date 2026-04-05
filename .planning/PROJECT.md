@@ -120,3 +120,29 @@ Email capture is triggered (not gated) after user experiences value:
 4. Simple rule-based diagnostics are enough for V1
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
+
+## Current Milestone: v1.1 Writer Experience Polish
+
+**Goal:** Improve how writers see and interact with their story by adding a single-column view, toggleable beat previews, and richer per-step fiction examples.
+
+**Target features:**
+- View toggle: 4-column board ↔ single-column list (same click-to-edit interaction in both)
+- Beat text preview toggle — when on, shows italic ~80-char preview on every card
+- 2–3 fiction examples per step (popular + 1 original) in the side form editor
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd-transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd-complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state

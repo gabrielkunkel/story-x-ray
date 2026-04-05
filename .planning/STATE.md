@@ -1,8 +1,8 @@
 # Story X-Ray — Project State
 
 ## Current Status
-- Milestone: 1.0 MVP
-- Active Phase: None — Milestone 1.0 MVP COMPLETE
+- Milestone: v1.1 Writer Experience Polish
+- Active Phase: Not started (defining requirements)
 - Last updated: 2026-04-04
 
 ## Completed Phases
