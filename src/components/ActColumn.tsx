@@ -6,9 +6,10 @@ interface Props {
   steps: StoryStep[]
   activeStepNumber: number | null
   onCardClick: (stepNumber: number) => void
+  showBeatPreview: boolean
 }
 
-export default function ActColumn({ actLabel, steps, activeStepNumber, onCardClick }: Props) {
+export default function ActColumn({ actLabel, steps, activeStepNumber, onCardClick, showBeatPreview }: Props) {
   return (
     <div className="act-column">
       <div className="act-column__header">{actLabel}</div>
@@ -19,6 +20,7 @@ export default function ActColumn({ actLabel, steps, activeStepNumber, onCardCli
             step={step}
             isActive={activeStepNumber === step.stepNumber}
             onClick={() => onCardClick(step.stepNumber)}
+            showBeatPreview={showBeatPreview}
           />
         ))}
       </div>

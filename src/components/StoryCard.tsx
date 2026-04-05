@@ -4,9 +4,10 @@ interface Props {
   step: StoryStep
   isActive: boolean
   onClick: () => void
+  showBeatPreview: boolean
 }
 
-export default function StoryCard({ step, isActive, onClick }: Props) {
+export default function StoryCard({ step, isActive, onClick, showBeatPreview }: Props) {
   const hasBeat = step.beatText.trim().length > 0
 
   return (
@@ -16,15 +17,24 @@ export default function StoryCard({ step, isActive, onClick }: Props) {
       aria-pressed={isActive}
       aria-label={`Step ${step.stepNumber}: ${step.label}`}
     >
-      <div className="story-card__number">
-        {String(step.stepNumber).padStart(2, '0')}
+      <div className="story-card__top">
+        <div className="story-card__number">
+          {String(step.stepNumber).padStart(2, '0')}
+        </div>
+        <div className="story-card__body">
+          <div className="story-card__label">{step.label}</div>
+          <div className="story-card__purpose">{step.purpose}</div>
+        </div>
+        {hasBeat && (
+          <div className="story-card__filled" aria-label="Beat text added" />
+        )}
       </div>
-      <div className="story-card__body">
-        <div className="story-card__label">{step.label}</div>
-        <div className="story-card__purpose">{step.purpose}</div>
-      </div>
-      {hasBeat && (
-        <div className="story-card__filled" aria-label="Beat text added" />
+      {showBeatPreview && hasBeat && (
+        <div className="story-card__preview">
+          {step.beatText.trim().length > 80
+            ? step.beatText.trim().slice(0, 80) + '\u2026'
+            : step.beatText.trim()}
+        </div>
       )}
     </button>
   )

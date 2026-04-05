@@ -303,8 +303,8 @@ textarea {
 
 .story-card {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  flex-direction: column;
+  gap: 6px;
   width: 100%;
   padding: 12px;
   border-radius: 8px;
@@ -359,6 +359,13 @@ textarea {
   overflow: hidden;
 }
 
+.story-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
 .story-card__filled {
   width: 7px;
   height: 7px;
@@ -366,6 +373,15 @@ textarea {
   background: var(--accent);
   flex-shrink: 0;
   margin-top: 4px;
+}
+
+.story-card__preview {
+  font: italic 400 11px/1.4 var(--sans);
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 /* ── Act Column ───────────────────────────────────────────── */
@@ -546,6 +562,36 @@ textarea {
   min-width: 720px;
 }
 
+/* ── List View ───────────────────────────────────────────── */
+
+.board-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.board-list__section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.board-list__act-label {
+  font: 700 11px/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 4px 2px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.board-list__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 @media (max-width: 768px) {
   .workspace__body {
     flex-direction: column;
@@ -574,7 +620,9 @@ textarea {
   }
 
   .board-header__graph-toggle,
-  .board-header__diag-toggle {
+  .board-header__diag-toggle,
+  .board-header__view-toggle,
+  .board-header__preview-toggle {
     font-size: 14px;
     padding: 4px 7px;
   }
@@ -739,8 +787,35 @@ textarea {
   font: 500 11px/1.6 var(--mono);
 }
 
-.board-header__graph-toggle {
+.board-header__separator {
   margin-left: auto;
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.board-header__view-toggle {
+  font-size: 16px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.board-header__view-toggle--active {
+  color: var(--accent);
+}
+
+.board-header__preview-toggle {
+  font-size: 16px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.board-header__preview-toggle--active {
+  color: var(--accent);
+}
+
+.board-header__graph-toggle {
   font-size: 18px;
   padding: 4px 10px;
   flex-shrink: 0;

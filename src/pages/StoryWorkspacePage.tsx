@@ -11,6 +11,7 @@ import {
 } from '../utils/emailCapture'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
+import StoryCard from '../components/StoryCard'
 import CardEditor from '../components/CardEditor'
 import WaveformGraph from '../components/WaveformGraph'
 import DiagnosticsPanel from '../components/DiagnosticsPanel'
@@ -32,6 +33,13 @@ export default function StoryWorkspacePage() {
     id ? loadStory(id) : null
   )
   const [activeStepNumber, setActiveStepNumber] = useState<number | null>(null)
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>(() => {
+    const stored = localStorage.getItem('sx:viewMode')
+    return stored === 'list' ? 'list' : 'grid'
+  })
+  const [showBeatPreview, setShowBeatPreview] = useState<boolean>(() => {
+    return localStorage.getItem('sx:showBeatPreview') === 'true'
+  })
   const [showGraph, setShowGraph] = useState(true)
   const [showDiagnostics, setShowDiagnostics] = useState(false)
   const [importError, setImportError] = useState<string | null>(null)
@@ -71,6 +79,22 @@ export default function StoryWorkspacePage() {
   const activeStep = activeStepNumber !== null
     ? story.steps.find(s => s.stepNumber === activeStepNumber) ?? null
     : null
+
+  function handleToggleBeatPreview() {
+    setShowBeatPreview(prev => {
+      const next = !prev
+      localStorage.setItem('sx:showBeatPreview', String(next))
+      return next
+    })
+  }
+
+  function handleToggleView() {
+    setViewMode(prev => {
+      const next = prev === 'grid' ? 'list' : 'grid'
+      localStorage.setItem('sx:viewMode', next)
+      return next
+    })
+  }
 
   function handleBeatTextChange(value: string) {
     if (activeStepNumber === null) return
@@ -162,6 +186,10 @@ export default function StoryWorkspacePage() {
         onExportJSON={handleExportJSON}
         onExportMarkdown={handleExportMarkdown}
         onImportJSON={handleImportJSON}
+        viewMode={viewMode}
+        onToggleView={handleToggleView}
+        showBeatPreview={showBeatPreview}
+        onToggleBeatPreview={handleToggleBeatPreview}
       />
 
       {importError && (
@@ -173,19 +201,46 @@ export default function StoryWorkspacePage() {
           {!hasAnyBeatText && (
             <p className="board-empty-hint">Click any card to start writing your story.</p>
           )}
-          <div className="board-grid">
-            {ACT_ORDER.map(act => (
-              <ActColumn
-                key={act}
-                actLabel={ACT_LABELS[act]}
-                steps={story.steps.filter(s => s.act === act)}
-                activeStepNumber={activeStepNumber}
-                onCardClick={stepNum =>
-                  setActiveStepNumber(prev => prev === stepNum ? null : stepNum)
-                }
-              />
-            ))}
-          </div>
+          {viewMode === 'list' ? (
+            <div className="board-list">
+              {ACT_ORDER.map(act => {
+                const actSteps = story.steps.filter(s => s.act === act)
+                return (
+                  <div key={act} className="board-list__section">
+                    <div className="board-list__act-label">{ACT_LABELS[act]}</div>
+                    <div className="board-list__cards">
+                      {actSteps.map(step => (
+                        <StoryCard
+                          key={step.stepNumber}
+                          step={step}
+                          isActive={activeStepNumber === step.stepNumber}
+                          onClick={() =>
+                            setActiveStepNumber(prev => prev === step.stepNumber ? null : step.stepNumber)
+                          }
+                          showBeatPreview={showBeatPreview}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="board-grid">
+              {ACT_ORDER.map(act => (
+                <ActColumn
+                  key={act}
+                  actLabel={ACT_LABELS[act]}
+                  steps={story.steps.filter(s => s.act === act)}
+                  activeStepNumber={activeStepNumber}
+                  onCardClick={stepNum =>
+                    setActiveStepNumber(prev => prev === stepNum ? null : stepNum)
+                  }
+                  showBeatPreview={showBeatPreview}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {activeStep && (

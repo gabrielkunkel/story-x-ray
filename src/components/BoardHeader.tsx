@@ -11,6 +11,10 @@ interface Props {
   onExportJSON: () => void
   onExportMarkdown: () => void
   onImportJSON: (file: File) => void
+  viewMode: 'grid' | 'list'
+  onToggleView: () => void
+  showBeatPreview: boolean
+  onToggleBeatPreview: () => void
 }
 
 export default function BoardHeader({
@@ -23,6 +27,10 @@ export default function BoardHeader({
   onExportJSON,
   onExportMarkdown,
   onImportJSON,
+  viewMode,
+  onToggleView,
+  showBeatPreview,
+  onToggleBeatPreview,
 }: Props) {
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -53,6 +61,21 @@ export default function BoardHeader({
           e.target.value = ''
         }}
       />
+      <span className="board-header__separator" />
+      <button
+        className={`btn-ghost board-header__view-toggle${viewMode === 'list' ? ' board-header__view-toggle--active' : ''}`}
+        onClick={onToggleView}
+        title={viewMode === 'grid' ? 'Switch to list view' : 'Switch to grid view'}
+      >
+        {viewMode === 'grid' ? '☰' : '⊞'}
+      </button>
+      <button
+        className={`btn-ghost board-header__preview-toggle${showBeatPreview ? ' board-header__preview-toggle--active' : ''}`}
+        onClick={onToggleBeatPreview}
+        title={showBeatPreview ? 'Hide beat previews' : 'Show beat previews'}
+      >
+        👁
+      </button>
       <button
         className={`btn-ghost board-header__graph-toggle${showGraph ? ' board-header__graph-toggle--active' : ''}`}
         onClick={onToggleGraph}
