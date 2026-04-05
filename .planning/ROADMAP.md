@@ -103,7 +103,12 @@ Plans:
   1. Opening any step's side editor shows 2-3 examples drawn from popular or original fiction
   2. At least one example per step is an original (non-adaptation) scenario
   3. Examples are visually separated from the existing step hint text (different style, label, or section)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 10-01-PLAN.md — StepExample interface and STEP_EXAMPLES data for all 16 steps
+- [ ] 10-02-PLAN.md — CardEditor examples section UI and CSS
+
 **UI hint**: yes
 
 ## Progress
@@ -119,7 +124,7 @@ Plans:
 | 7. Email Capture | v1.0 | - | Complete | 2026-04-04 |
 | 8. PWA Polish & Hardening | v1.0 | - | Complete | 2026-04-04 |
 | 9. Board View Controls | v1.1 | 2/2 | Complete | 2026-04-05 |
-| 10. Step Examples | v1.1 | 0/? | Not started | - |
+| 10. Step Examples | v1.1 | 0/2 | Not started | - |
 
 ## Future Milestone (Post-v1.1)
 
