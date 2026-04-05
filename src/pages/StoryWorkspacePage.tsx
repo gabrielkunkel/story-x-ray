@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
 import type { Story, Dimension } from '../types/story'
 import { runDiagnostics } from '../utils/diagnostics'
-import { exportStoryAsJSON, exportStoryAsMarkdown, exportStoryAsFountain } from '../utils/export'
+import { exportStoryAsJSON, exportStoryAsMarkdown, exportStoryAsFountain, exportStoryAsPDF } from '../utils/export'
 import {
   hasSubmittedEmail,
   hasShownThisSession,
@@ -17,7 +17,7 @@ import WaveformGraph from '../components/WaveformGraph'
 import DiagnosticsPanel from '../components/DiagnosticsPanel'
 import EmailCaptureModal, { type CaptureContext } from '../components/EmailCaptureModal'
 import StoryInfoModal from '../components/StoryInfoModal'
-import PrintLayout from '../components/PrintLayout'
+import PdfExportModal from '../components/PdfExportModal'
 
 const ACT_LABELS: Record<string, string> = {
   I:   'Act I',
@@ -47,6 +47,7 @@ export default function StoryWorkspacePage() {
   const [importError, setImportError] = useState<string | null>(null)
   const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
   const [showStoryInfo, setShowStoryInfo] = useState(false)
+  const [showPdfModal, setShowPdfModal] = useState(false)
   const act1CheckedRef = useRef(false)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
@@ -161,8 +162,17 @@ export default function StoryWorkspacePage() {
     updateAndSave({ ...story!, ...patch })
   }
 
-  function handleExportPDF() {
-    window.print()
+  function handleOpenPdfModal() {
+    setShowPdfModal(true)
+  }
+
+  function handlePdfChoice(includeScores: boolean) {
+    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+      markShownThisSession('export')
+      setCaptureContext('export')
+    }
+    exportStoryAsPDF(story!, includeScores)
+    setShowPdfModal(false)
   }
 
   function handleExportFountain() {
@@ -206,7 +216,7 @@ export default function StoryWorkspacePage() {
         showBeatPreview={showBeatPreview}
         onToggleBeatPreview={handleToggleBeatPreview}
         onEditStoryInfo={() => setShowStoryInfo(true)}
-        onExportPDF={handleExportPDF}
+        onExportPDF={handleOpenPdfModal}
         onExportFountain={handleExportFountain}
       />
 
@@ -304,7 +314,12 @@ export default function StoryWorkspacePage() {
         />
       )}
 
-      <PrintLayout story={story} />
+      {showPdfModal && (
+        <PdfExportModal
+          onChoose={handlePdfChoice}
+          onClose={() => setShowPdfModal(false)}
+        />
+      )}
     </div>
   )
 }
