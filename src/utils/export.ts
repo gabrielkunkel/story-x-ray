@@ -52,3 +52,46 @@ export function exportStoryAsMarkdown(story: Story): void {
   a.click()
   URL.revokeObjectURL(url)
 }
+
+export function exportStoryAsFountain(story: Story): void {
+  const ACT_ORDER = ['I', 'IIA', 'IIB', 'III'] as const
+  const ACT_LABELS: Record<string, string> = {
+    I: 'Act I', IIA: 'Act IIA', IIB: 'Act IIB', III: 'Act III',
+  }
+
+  const lines: string[] = []
+
+  // Title page
+  lines.push(`Title: ${story.title}`)
+  if (story.author) lines.push(`Author: ${story.author}`)
+  lines.push(`Draft Date: ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}`)
+  lines.push('')
+  lines.push('===')
+  lines.push('')
+
+  // Steps grouped by act — omit steps with no beat text
+  for (const act of ACT_ORDER) {
+    const actSteps = story.steps.filter(s => s.act === act && s.beatText.trim())
+    if (actSteps.length === 0) continue
+
+    lines.push(`# ${ACT_LABELS[act]}`)
+    lines.push('')
+
+    for (const step of actSteps) {
+      const num = String(step.stepNumber).padStart(2, '0')
+      lines.push(`## Step ${num}: ${step.label}`)
+      lines.push('')
+      lines.push(step.beatText.trim())
+      lines.push('')
+    }
+  }
+
+  const fountain = lines.join('\n')
+  const blob = new Blob([fountain], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${sanitizeFilename(story.title)}.fountain`
+  a.click()
+  URL.revokeObjectURL(url)
+}

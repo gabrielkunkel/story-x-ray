@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadStory, saveStory } from '../services/storage'
 import type { Story, Dimension } from '../types/story'
 import { runDiagnostics } from '../utils/diagnostics'
-import { exportStoryAsJSON, exportStoryAsMarkdown } from '../utils/export'
+import { exportStoryAsJSON, exportStoryAsMarkdown, exportStoryAsFountain } from '../utils/export'
 import {
   hasSubmittedEmail,
   hasShownThisSession,
@@ -165,6 +165,10 @@ export default function StoryWorkspacePage() {
     window.print()
   }
 
+  function handleExportFountain() {
+    exportStoryAsFountain(story!)
+  }
+
   function handleExportMarkdown() {
     if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
@@ -203,6 +207,7 @@ export default function StoryWorkspacePage() {
         onToggleBeatPreview={handleToggleBeatPreview}
         onEditStoryInfo={() => setShowStoryInfo(true)}
         onExportPDF={handleExportPDF}
+        onExportFountain={handleExportFountain}
       />
 
       {importError && (

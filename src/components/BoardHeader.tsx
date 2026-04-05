@@ -17,6 +17,7 @@ interface Props {
   onToggleBeatPreview: () => void
   onEditStoryInfo: () => void
   onExportPDF: () => void
+  onExportFountain: () => void
 }
 
 export default function BoardHeader({
@@ -35,6 +36,7 @@ export default function BoardHeader({
   onToggleBeatPreview,
   onEditStoryInfo,
   onExportPDF,
+  onExportFountain,
 }: Props) {
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -61,6 +63,9 @@ export default function BoardHeader({
       </button>
       <button className="btn-ghost board-header__action" onClick={onExportPDF} title="Export as PDF">
         ↓ PDF
+      </button>
+      <button className="btn-ghost board-header__action" onClick={onExportFountain} title="Export as Fountain (screenplay)">
+        ↓ Fountain
       </button>
       <button className="btn-ghost board-header__action" onClick={() => fileInputRef.current?.click()} title="Import JSON">
         ↑
