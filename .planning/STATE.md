@@ -1,8 +1,8 @@
 # Story X-Ray — Project State
 
 ## Current Status
-- Milestone: v1.1 Writer Experience Polish — SHIPPED 2026-04-05
-- Active Phase: None — all phases complete
+- Milestone: v1.3 Export Polish & Card UX — IN PROGRESS
+- Active Phase: None — defining requirements
 - Last updated: 2026-04-05
 
 ## Completed Phases
@@ -27,9 +27,17 @@
 
 - **Phase 10 — Step Examples** (2026-04-05) — commit `55dc382`
   - 48 fiction examples (16 steps × 3) in CardEditor collapsible; teal/amber palette
+- **Phase 11 — List View Card Polish** (2026-04-05) — commit `834d75a`
+  - Full-width list cards; responsive beat quote inline (right on wide, below on narrow)
+- **Phase 12 — Story Identity** (2026-04-05) — commit `1a8f3ed`
+  - author field added; ✎ edit modal in board header for title/author/genre
+- **Phase 13 — PDF Export** (2026-04-05) — commit `f791ced`
+  - PrintLayout component + @media print; ↓ PDF button triggers window.print()
+- **Phase 14 — Fountain Export** (2026-04-05) — commit `2c7e07b`
+  - .fountain file export; title page metadata, act/step headings, beat text as action
 
 ## In Progress
-- None — v1.1 milestone complete
+- None — v1.2 milestone complete
 
 ## Decisions Log
 | Date | Decision | Rationale |
