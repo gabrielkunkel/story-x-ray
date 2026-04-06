@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: Stories Browser & Email Capture
-status: ready_to_plan
-stopped_at: Phase 20 complete — ready to plan Phase 21 (Email Capture Redesign)
-last_updated: "2026-04-06T00:00:00.000Z"
-last_activity: 2026-04-06 — Phase 20 complete (07e1618); Phase 21 next
+status: executing
+stopped_at: v1.4 roadmap created
+last_updated: "2026-04-06T23:31:49.572Z"
+last_activity: 2026-04-06 -- Phase 21 execution started
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 0
   total_plans: 5
-  completed_plans: 3
-  percent: 60
+  completed_plans: 0
+  percent: 0
 ---
 
 # Story X-Ray — Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-05)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** Phase 19 — PWA Console Warning Fix
+**Current focus:** Phase 21 — Email Capture Redesign
 
 ## Current Position
 
-Phase: 19 of 21 (PWA Console Warning Fix)
-Plan: 0 of 1 in current phase
-Status: Ready to plan
-Last activity: 2026-04-06 — v1.5 roadmap created; Phases 19-21 defined
+Phase: 21 (Email Capture Redesign) — EXECUTING
+Plan: 1 of 2
+Status: Executing Phase 21
+Last activity: 2026-04-06 -- Phase 21 execution started
 
 Progress: [████████████████████] 18/21 phases complete across all milestones (Phase 19 not started)
 
