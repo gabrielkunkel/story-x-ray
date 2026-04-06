@@ -3,9 +3,16 @@ import { submitEmail, markShownThisSession } from '../utils/emailCapture'
 
 export type CaptureContext = 'act1' | 'export' | 'diagnostics' | 'examples' | 'early-access'
 
+// ── Marketing config ─────────────────────────────────────────────────────
+// Edit these constants to change the email capture modal content.
+// To add a marketing image, place the file in public/ and set the path below.
+// See README.md "Customize email modal" for full instructions.
+// ──────────────────────────────────────────────────────────────────────────
+export const MODAL_IMAGE_SRC = ''  // e.g. '/marketing.png' — empty string = no image
+
 const COPY: Record<CaptureContext, { headline: string; body: string }> = {
   'act1': {
-    headline: 'Act I mapped — nice work.',
+    headline: 'Your story is taking shape.',
     body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
   },
   'export': {
@@ -25,6 +32,7 @@ const COPY: Record<CaptureContext, { headline: string; body: string }> = {
     body: 'Get on the waitlist and receive 5 example story maps + the structure rescue guide.',
   },
 }
+// ── End marketing config ─────────────────────────────────────────────────
 
 interface Props {
   context: CaptureContext
