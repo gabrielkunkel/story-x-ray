@@ -50,7 +50,7 @@ export default function StoryWorkspacePage({ isInstallable = false }: { isInstal
   const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
   const [showStoryInfo, setShowStoryInfo] = useState(false)
   const [showPdfModal, setShowPdfModal] = useState(false)
-  const act1CheckedRef = useRef(false)
+  const beatThresholdCheckedRef = useRef(false)
   const [showInstallCallout, setShowInstallCallout] = useState(false)
   const installCalloutShownRef = useRef(false)
 
@@ -61,13 +61,13 @@ export default function StoryWorkspacePage({ isInstallable = false }: { isInstal
 
   const diagnostics = story ? runDiagnostics(story.steps) : []
 
-  // Trigger 1 — Post-Act-I popup
+  // Trigger 1 — 4-beat threshold popup
   useEffect(() => {
-    if (!story || act1CheckedRef.current) return
+    if (!story || beatThresholdCheckedRef.current) return
     if (hasSubmittedEmail() || hasShownThisSession('act1')) return
-    const act1Steps = story.steps.filter(s => s.act === 'I')
-    if (act1Steps.every(s => s.beatText.trim().length > 0)) {
-      act1CheckedRef.current = true
+    const filledBeats = story.steps.filter(s => s.beatText.trim().length > 0).length
+    if (filledBeats >= 4) {
+      beatThresholdCheckedRef.current = true
       markShownThisSession('act1')
       setCaptureContext('act1')
     }
