@@ -13,7 +13,6 @@ export function usePWAInstall() {
 
   useEffect(() => {
     function handleBeforeInstall(e: Event) {
-      e.preventDefault()
       deferredPrompt.current = e as BeforeInstallPromptEvent
       setIsInstallable(true)
     }
