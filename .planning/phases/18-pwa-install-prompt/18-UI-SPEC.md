@@ -43,7 +43,7 @@ Declared values (must be multiples of 4):
 
 Exceptions:
 - Touch target minimum: 44px height for the callout dismiss button (accessibility, WCAG 2.5.5)
-- Callout internal padding: 10px 12px (matches `diag-capture-cta` pattern — nearest 4pt is 8px/12px; use 12px to match existing callout chrome)
+- Callout internal padding: `8px 12px` — vertical uses `sm` (8px), horizontal uses `12px` (nearest on-scale value matching existing callout chrome)
 
 Source: Spacing values derived from `index.css` patterns (`.diag-capture-cta`, `.card-editor`, `.workspace__board`).
 
@@ -119,7 +119,7 @@ The callout is a **non-modal inline banner**, not an overlay. It renders inside 
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   border: 1px dashed var(--accent-border);
   background: var(--accent-bg);
