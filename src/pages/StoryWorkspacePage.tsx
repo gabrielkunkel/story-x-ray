@@ -9,7 +9,6 @@ import {
   hasShownThisSession,
   markShownThisSession,
 } from '../utils/emailCapture'
-import { usePWAInstall } from '../hooks/usePWAInstall'
 import { isChromeBrowser, shouldShowInstallCallout, recordInstallDismiss } from '../utils/pwaInstall'
 import PWAInstallCallout from '../components/PWAInstallCallout'
 import BoardHeader from '../components/BoardHeader'
@@ -30,7 +29,7 @@ const ACT_LABELS: Record<string, string> = {
 }
 const ACT_ORDER = ['I', 'IIA', 'IIB', 'III'] as const
 
-export default function StoryWorkspacePage() {
+export default function StoryWorkspacePage({ isInstallable = false }: { isInstallable?: boolean }) {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
@@ -52,7 +51,6 @@ export default function StoryWorkspacePage() {
   const [showStoryInfo, setShowStoryInfo] = useState(false)
   const [showPdfModal, setShowPdfModal] = useState(false)
   const act1CheckedRef = useRef(false)
-  const { isInstallable } = usePWAInstall()
   const [showInstallCallout, setShowInstallCallout] = useState(false)
   const installCalloutShownRef = useRef(false)
 
