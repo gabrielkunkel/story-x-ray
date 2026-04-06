@@ -47,6 +47,35 @@ export const BEEHIIV_PUBLICATION_ID = 'pub_your-id-here'
 
 Find it at app.beehiiv.com → Settings → Publication. Leave empty to run in dev mode (submissions logged to console only).
 
+## Customize email modal
+
+The email capture modal's marketing content is configured in  
+`src/components/EmailCaptureModal.tsx` — look for the **Marketing config** comment block near the top of the file.
+
+### Add a marketing image
+
+1. Place your image in the `public/` directory (e.g. `public/marketing.png`)
+2. Set the path in `EmailCaptureModal.tsx`:
+   ```ts
+   export const MODAL_IMAGE_SRC = '/marketing.png'
+   ```
+3. Leave `MODAL_IMAGE_SRC = ''` to hide the image
+
+**Recommended dimensions:** 688 px wide (2x for retina), aspect ratio ~16:9 or ~3:1 (banner-style).
+
+### Update headline and body copy
+
+Edit the `COPY` record in the same config block. The `'act1'` entry controls the copy shown when the modal triggers after 4 beats are filled:
+
+```ts
+'act1': {
+  headline: 'Your story is taking shape.',
+  body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
+},
+```
+
+Other entries (`'export'`, `'diagnostics'`, `'examples'`, `'early-access'`) control copy for their respective trigger contexts.
+
 ---
 
 ## Tech stack
