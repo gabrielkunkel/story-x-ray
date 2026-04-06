@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: Stories Browser & Email Capture
 status: ready_to_plan
-stopped_at: Roadmap created — Phases 19-21 defined, ready to plan Phase 19
+stopped_at: Phase 20 complete — ready to plan Phase 21 (Email Capture Redesign)
 last_updated: "2026-04-06T00:00:00.000Z"
-last_activity: 2026-04-06 — v1.5 roadmap created; Phases 19-21 defined
+last_activity: 2026-04-06 — Phase 20 complete (07e1618); Phase 21 next
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 0
-  percent: 0
+  completed_plans: 3
+  percent: 60
 ---
 
 # Story X-Ray — Project State
