@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.4
-milestone_name: PWA Install Prompt
-status: milestone_complete
-stopped_at: v1.4 archived — all 18 phases complete, ready for next milestone
+milestone: v1.5
+milestone_name: Stories Browser & Email Capture
+status: ready_to_plan
+stopped_at: Roadmap created — Phases 19-21 defined, ready to plan Phase 19
 last_updated: "2026-04-06T00:00:00.000Z"
-last_activity: 2026-04-06 — v1.4 milestone archived; Phase 18 summary written
+last_activity: 2026-04-06 — v1.5 roadmap created; Phases 19-21 defined
 progress:
-  total_phases: 1
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_phases: 3
+  completed_phases: 0
+  total_plans: 5
+  completed_plans: 0
+  percent: 0
 ---
 
 # Story X-Ray — Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-05)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** Phase 18 — PWA Install Prompt
+**Current focus:** Phase 19 — PWA Console Warning Fix
 
 ## Current Position
 
-Phase: 18 of 18 (PWA Install Prompt)
-Plan: 0 of 2 in current phase
+Phase: 19 of 21 (PWA Console Warning Fix)
+Plan: 0 of 1 in current phase
 Status: Ready to plan
-Last activity: 2026-04-05 — v1.4 roadmap created; Phase 18 defined
+Last activity: 2026-04-06 — v1.5 roadmap created; Phases 19-21 defined
 
-Progress: [████████████████████] 17/18 phases complete across all milestones (Phase 18 not started)
+Progress: [████████████████████] 18/21 phases complete across all milestones (Phase 19 not started)
 
 ## Performance Metrics
 

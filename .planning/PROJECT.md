@@ -121,17 +121,15 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current State: v1.4 Shipped (2026-04-06)
+## Current Milestone: v1.5 Stories Browser & Email Capture
 
-All 18 phases complete across 4 milestones. The app is a fully functional, installable PWA for story construction.
+**Goal:** Give users access to all their saved stories from the start screen, fix the PWA console warning, and make the email capture modal more compelling with a smarter trigger and optional marketing image.
 
-**Shipped in v1.4:**
-- Chrome PWA install callout — fires after first story, points to URL bar install button
-- Progressive dismiss cooldown (3d → 7d → 30d → permanent suppress)
-- Permanent suppress after installation (`appinstalled` event)
-- Chrome-only guard (blocks Edge, Safari, Firefox)
-
-**Next milestone:** Not yet defined. See `.planning/notes/` for captured ideas (email capture trigger redesign noted 2026-04-06).
+**Target features:**
+- Remove PWA `beforeinstallprompt` console warning (drop unnecessary `preventDefault`)
+- Story browser on StartPage — list all saved stories, open or delete any of them
+- Email capture trigger: any 4 beats filled (not just Act I), once per session
+- Email modal: configurable marketing image + copy, hardcoded in source with README instructions
 
 ## Previous Milestones
 

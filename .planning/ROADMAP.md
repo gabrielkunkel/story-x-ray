@@ -7,6 +7,7 @@
 - ✅ **v1.2 Story Identity & Export** - Phases 11-14 (shipped 2026-04-05)
 - ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05) — [archive](.planning/milestones/v1.3-ROADMAP.md)
 - ✅ **v1.4 PWA Install Prompt** - Phase 18 (shipped 2026-04-06) — [archive](.planning/milestones/v1.4-ROADMAP.md)
+- 🚧 **v1.5 Stories Browser & Email Capture** - Phases 19-21 (in progress)
 
 ## Phases
 
@@ -187,6 +188,59 @@ See archived roadmap for phase details.
 
 </details>
 
+<details open>
+<summary>🚧 v1.5 Stories Browser & Email Capture (Phases 19-21) - IN PROGRESS</summary>
+
+### Phase 19: PWA Console Warning Fix
+**Goal**: Remove the "Banner not shown" console warning by dropping `e.preventDefault()` from the `beforeinstallprompt` handler since `deferredPrompt.prompt()` is never called
+**Depends on**: Phase 18
+**Requirements**: PWA-03
+**Success Criteria** (what must be TRUE):
+  1. No "Banner not shown: beforeinstallpromptevent.preventDefault() called" message in Chrome console
+  2. The install callout still appears correctly when the app is installable
+**Plans**: 1 plan
+
+Plans:
+- [ ] 19-01-PLAN.md — Remove preventDefault from usePWAInstall hook
+
+### Phase 20: Story Project Browser
+**Goal**: Users can see and open all their saved stories from the start screen
+**Depends on**: Phase 19
+**Requirements**: STORIES-01, STORIES-02, STORIES-03, STORIES-04, STORIES-05
+**Success Criteria** (what must be TRUE):
+  1. Start screen lists all saved stories ordered by most recently updated
+  2. Each story shows title and last-updated date
+  3. Clicking a story navigates to its workspace
+  4. Each story has a delete action with a confirmation step
+  5. No stories → list is hidden, start screen unchanged
+**Plans**: 2 plans
+
+Plans:
+- [ ] 20-01-PLAN.md — Story list UI on StartPage
+- [ ] 20-02-PLAN.md — Delete story with confirmation
+
+**UI hint**: yes
+
+### Phase 21: Email Capture Redesign
+**Goal**: Trigger the email modal after any 4 beats are filled (not just Act I), and add optional marketing image + configurable copy to the modal
+**Depends on**: Phase 20
+**Requirements**: CAPTURE-01, CAPTURE-02, CAPTURE-03, CAPTURE-04, CAPTURE-05
+**Success Criteria** (what must be TRUE):
+  1. Email modal triggers when any 4 beats (beatText non-empty) exist across the whole story — not limited to Act I
+  2. Trigger is per-session: fires once per session if email not yet submitted
+  3. Modal optionally renders a marketing image above the headline when an image path is configured in source
+  4. Headline and body copy are defined in one place in source and easy to find
+  5. README.md explains how to update the image and copy
+**Plans**: 2 plans
+
+Plans:
+- [ ] 21-01-PLAN.md — Trigger logic change + configurable copy
+- [ ] 21-02-PLAN.md — Marketing image support in modal
+
+**UI hint**: yes
+
+</details>
+
 ---
 
 ## Progress
@@ -211,3 +265,6 @@ See archived roadmap for phase details.
 | 16. Export Dropdown | v1.3 | 1/1 | Complete | 2026-04-05 |
 | 17. List View Card Polish | v1.3 | 1/1 | Complete | 2026-04-05 |
 | 18. PWA Install Prompt | v1.4 | 2/2 | Complete | 2026-04-06 |
+| 19. PWA Console Warning Fix | v1.5 | 0/1 | Not started | - |
+| 20. Story Project Browser | v1.5 | 0/2 | Not started | - |
+| 21. Email Capture Redesign | v1.5 | 0/2 | Not started | - |
