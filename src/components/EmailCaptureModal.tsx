@@ -71,6 +71,15 @@ export default function EmailCaptureModal({ context, onClose }: Props) {
           ×
         </button>
 
+        {MODAL_IMAGE_SRC && (
+          <img
+            className="capture-modal__image"
+            src={MODAL_IMAGE_SRC}
+            alt=""
+            aria-hidden="true"
+          />
+        )}
+
         <p className="capture-modal__headline">{headline}</p>
         <p className="capture-modal__body">{body}</p>
 
