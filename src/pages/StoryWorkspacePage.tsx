@@ -74,7 +74,7 @@ export default function StoryWorkspacePage({ isInstallable = false }: { isInstal
   }, [story])
 
   useEffect(() => {
-    if (installCalloutShownRef.current) return
+if (installCalloutShownRef.current) return
     if (!isChromeBrowser()) return
     if (!isInstallable) return
     if (!shouldShowInstallCallout()) return
