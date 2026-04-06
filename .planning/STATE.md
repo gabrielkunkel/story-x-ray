@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.4
 milestone_name: PWA Install Prompt
-status: ready_to_plan
-stopped_at: Roadmap created — Phase 18 defined, ready to plan
-last_updated: "2026-04-05T23:59:00.000Z"
-last_activity: 2026-04-05 — v1.4 roadmap created; Phase 18 defined
+status: milestone_complete
+stopped_at: v1.4 archived — all 18 phases complete, ready for next milestone
+last_updated: "2026-04-06T00:00:00.000Z"
+last_activity: 2026-04-06 — v1.4 milestone archived; Phase 18 summary written
 progress:
   total_phases: 1
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 0
-  percent: 0
+  completed_plans: 2
+  percent: 100
 ---
 
 # Story X-Ray — Project State

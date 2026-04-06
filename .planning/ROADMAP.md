@@ -6,7 +6,7 @@
 - ✅ **v1.1 Writer Experience Polish** - Phases 9-10 (shipped 2026-04-05)
 - ✅ **v1.2 Story Identity & Export** - Phases 11-14 (shipped 2026-04-05)
 - ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05) — [archive](.planning/milestones/v1.3-ROADMAP.md)
-- 🚧 **v1.4 PWA Install Prompt** - Phase 18 (in progress)
+- ✅ **v1.4 PWA Install Prompt** - Phase 18 (shipped 2026-04-06) — [archive](.planning/milestones/v1.4-ROADMAP.md)
 
 ## Phases
 
@@ -180,24 +180,10 @@ See archived roadmap for phase details.
 
 </details>
 
-<details open>
-<summary>🚧 v1.4 PWA Install Prompt (Phase 18) - IN PROGRESS</summary>
+<details>
+<summary>✅ v1.4 PWA Install Prompt (Phase 18) - SHIPPED 2026-04-06 — <a href=".planning/milestones/v1.4-ROADMAP.md">archive</a></summary>
 
-- [ ] **Phase 18: PWA Install Prompt** - Make the app fully installable by Chrome and guide first-time users to install it
-
-### Phase 18: PWA Install Prompt
-**Goal**: Chrome users can install the app from a native-feeling callout that appears after their first story, with progressive re-prompting for dismissals and permanent suppression after installation
-**Depends on**: Phase 17
-**Requirements**: PWA-01, PWA-02, INSTALL-01, INSTALL-02, INSTALL-03, INSTALL-04, INSTALL-05, INSTALL-06
-**Success Criteria** (what must be TRUE):
-  1. Chrome's install criteria are fully met — `beforeinstallprompt` fires in both local dev and production build
-  2. After a user creates their first story, a callout appears pointing to the Chrome URL bar install button with a brief benefit statement
-  3. Dismissing the callout hides it; it reappears after 3 days, then 1 week, then 1 month — after which it stops appearing permanently
-  4. After the user installs the app, the callout is never shown again
-  5. On non-Chrome browsers, no install callout or install-related messaging appears anywhere in the app
-**Plans**: TBD
-
-**UI hint**: yes
+See archived roadmap for phase details.
 
 </details>
 
@@ -224,4 +210,4 @@ See archived roadmap for phase details.
 | 15. PDF Export Overhaul | v1.3 | 2/2 | Complete | 2026-04-05 |
 | 16. Export Dropdown | v1.3 | 1/1 | Complete | 2026-04-05 |
 | 17. List View Card Polish | v1.3 | 1/1 | Complete | 2026-04-05 |
-| 18. PWA Install Prompt | v1.4 | 0/2 | Not started | - |
+| 18. PWA Install Prompt | v1.4 | 2/2 | Complete | 2026-04-06 |

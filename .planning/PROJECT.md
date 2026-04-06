@@ -121,18 +121,31 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current Milestone: v1.4 PWA Install Prompt
+## Current State: v1.4 Shipped (2026-04-06)
 
-**Goal:** Guide first-time Chrome users to install the app using the browser's native install flow, with progressive re-prompting for users who dismiss.
+All 18 phases complete across 4 milestones. The app is a fully functional, installable PWA for story construction.
 
-**Target features:**
-- Chrome-only install callout triggered after the first story is created
-- Callout points to the URL bar install button with a brief explanation (add to desktop or apps folder)
-- Dismissing re-shows the prompt at progressively longer intervals: 3 days → 1 week → 1 month
-- Non-Chrome browsers: no prompt, no messaging
-- Once installed, never shown again
+**Shipped in v1.4:**
+- Chrome PWA install callout — fires after first story, points to URL bar install button
+- Progressive dismiss cooldown (3d → 7d → 30d → permanent suppress)
+- Permanent suppress after installation (`appinstalled` event)
+- Chrome-only guard (blocks Edge, Safari, Firefox)
+
+**Next milestone:** Not yet defined. See `.planning/notes/` for captured ideas (email capture trigger redesign noted 2026-04-06).
 
 ## Previous Milestones
+
+<details>
+<summary>v1.4 PWA Install Prompt (shipped 2026-04-06)</summary>
+
+**Goal:** Guide first-time Chrome users to install the app using the browser's native install flow.
+- Maskable icon added to manifest (Chrome installability criteria met)
+- Chrome-only install callout — inline banner, points to URL bar, no `prompt()` call
+- Progressive dismiss cooldown: 3d → 7d → 30d → permanent
+- Permanent suppress after `appinstalled` event
+
+[Full archive](.planning/milestones/v1.4-ROADMAP.md)
+</details>
 
 <details>
 <summary>v1.3 Export Polish & Card UX (shipped 2026-04-05)</summary>
