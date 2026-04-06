@@ -9,6 +9,9 @@ import {
   hasShownThisSession,
   markShownThisSession,
 } from '../utils/emailCapture'
+import { usePWAInstall } from '../hooks/usePWAInstall'
+import { isChromeBrowser, shouldShowInstallCallout, recordInstallDismiss } from '../utils/pwaInstall'
+import PWAInstallCallout from '../components/PWAInstallCallout'
 import BoardHeader from '../components/BoardHeader'
 import ActColumn from '../components/ActColumn'
 import StoryCard from '../components/StoryCard'
@@ -49,6 +52,9 @@ export default function StoryWorkspacePage() {
   const [showStoryInfo, setShowStoryInfo] = useState(false)
   const [showPdfModal, setShowPdfModal] = useState(false)
   const act1CheckedRef = useRef(false)
+  const { isInstallable } = usePWAInstall()
+  const [showInstallCallout, setShowInstallCallout] = useState(false)
+  const installCalloutShownRef = useRef(false)
 
   const updateAndSave = useCallback((updatedStory: Story) => {
     setStory(updatedStory)
@@ -68,6 +74,15 @@ export default function StoryWorkspacePage() {
       setCaptureContext('act1')
     }
   }, [story])
+
+  useEffect(() => {
+    if (installCalloutShownRef.current) return
+    if (!isChromeBrowser()) return
+    if (!isInstallable) return
+    if (!shouldShowInstallCallout()) return
+    installCalloutShownRef.current = true
+    setShowInstallCallout(true)
+  }, [isInstallable])
 
   if (!story) {
     return (
@@ -175,6 +190,11 @@ export default function StoryWorkspacePage() {
     setShowPdfModal(false)
   }
 
+  function handleInstallDismiss() {
+    recordInstallDismiss()
+    setShowInstallCallout(false)
+  }
+
   function handleExportFountain() {
     exportStoryAsFountain(story!)
   }
@@ -219,6 +239,10 @@ export default function StoryWorkspacePage() {
         onExportPDF={handleOpenPdfModal}
         onExportFountain={handleExportFountain}
       />
+
+      {showInstallCallout && (
+        <PWAInstallCallout onDismiss={handleInstallDismiss} />
+      )}
 
       {importError && (
         <p className="import-error">{importError}</p>
