@@ -2,35 +2,34 @@
 gsd_state_version: 1.0
 milestone: v1.5
 milestone_name: Stories Browser & Email Capture
-status: executing
-stopped_at: v1.4 roadmap created
-last_updated: "2026-04-06T23:31:49.572Z"
-last_activity: 2026-04-06 -- Phase 21 execution started
+status: complete
+stopped_at: v1.5 milestone complete
+last_updated: "2026-04-07T00:00:00.000Z"
+last_activity: 2026-04-07 -- v1.5 milestone archived
 progress:
   total_phases: 3
-  completed_phases: 0
-  total_plans: 5
-  completed_plans: 0
-  percent: 0
+  completed_phases: 3
+  total_plans: 4
+  completed_plans: 4
+  percent: 100
 ---
 
 # Story X-Ray — Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-05)
+See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** Phase 21 — Email Capture Redesign
+**Current focus:** Planning next milestone — run `/gsd-new-milestone` to start v1.6
 
 ## Current Position
 
-Phase: 21 (Email Capture Redesign) — EXECUTING
-Plan: 1 of 2
-Status: Executing Phase 21
-Last activity: 2026-04-06 -- Phase 21 execution started
+Phase: All v1.5 phases complete (19–21)
+Status: v1.5 SHIPPED — ready for next milestone
+Last activity: 2026-04-07 -- v1.5 milestone archived
 
-Progress: [████████████████████] 18/21 phases complete across all milestones (Phase 19 not started)
+Progress: [████████████████████] 21/21 phases complete across all milestones
 
 ## Performance Metrics
 
