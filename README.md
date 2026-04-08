@@ -49,32 +49,68 @@ Find it at app.beehiiv.com → Settings → Publication. Leave empty to run in d
 
 ## Customize email modal
 
-The email capture modal's marketing content is configured in  
-`src/components/EmailCaptureModal.tsx` — look for the **Marketing config** comment block near the top of the file.
+The email capture modal's content is configured in `src/config/emailModal.ts`.  
+Edit that file and redeploy — no component changes needed.
+
+### Fields
+
+#### Global (same across all trigger contexts)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `imageSrc` | `string` | Path to marketing image in `public/`. Empty string = no image. |
+| `ctaText` | `string` | Label on the email submit button. |
+| `footer` | `string?` | Optional line below the form (e.g. "No spam."). Empty or absent = hidden. |
+
+#### Per-context (keyed by `CaptureContext`)
+
+Each context key (`act1`, `export`, `diagnostics`, `examples`, `early-access`) has:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `headline` | `string` | Bold title shown at the top of the modal. |
+| `subtitle` | `string` | Body paragraph below the headline. |
+| `bullets` | `string[]` | Optional bullet list rendered as `<ul><li>` items. Empty array = hidden. |
 
 ### Add a marketing image
 
-1. Place your image in the `public/` directory (e.g. `public/marketing.png`)
-2. Set the path in `EmailCaptureModal.tsx`:
+1. Place your image in `public/` (e.g. `public/marketing.png`)
+2. Set `imageSrc` in `src/config/emailModal.ts`:
    ```ts
-   export const MODAL_IMAGE_SRC = '/marketing.png'
+   global: {
+     imageSrc: '/marketing.png',
+     ...
+   }
    ```
-3. Leave `MODAL_IMAGE_SRC = ''` to hide the image
+3. Leave `imageSrc: ''` to hide the image
 
 **Recommended dimensions:** 688 px wide (2x for retina), aspect ratio ~16:9 or ~3:1 (banner-style).
 
-### Update headline and body copy
+### Add bullets
 
-Edit the `COPY` record in the same config block. The `'act1'` entry controls the copy shown when the modal triggers after 4 beats are filled:
+Set the `bullets` array for any context:
 
 ```ts
 'act1': {
   headline: 'Your story is taking shape.',
-  body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
+  subtitle: 'Free resources to help you finish.',
+  bullets: [
+    '5 example story maps',
+    'Beat gap checklist',
+    'Structure rescue guide',
+  ],
 },
 ```
 
-Other entries (`'export'`, `'diagnostics'`, `'examples'`, `'early-access'`) control copy for their respective trigger contexts.
+### Rich content
+
+Structured fields (`bullets`) are the supported rich-content mechanism. Plain strings in `headline`, `subtitle`, and `footer` are rendered as text — no HTML or markdown parsing. To emphasize content, use bullets rather than inline markup.
+
+### Deploy workflow
+
+1. Edit `src/config/emailModal.ts`
+2. Run `npm run build` to verify no type errors
+3. Deploy the updated build
 
 ---
 
