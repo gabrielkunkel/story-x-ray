@@ -225,7 +225,11 @@ Plans:
   2. Card padding, form controls, and textarea height increase proportionally — no elements feel cramped or misaligned
   3. Chart labels, legend, and stroke weight remain legible and do not overflow or clip at the new scale
   4. Sidebar width and overall spacing maintain visual balance — nothing feels crowded or too sparse
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 23-01-PLAN.md — CSS scale refactor (root font, rem conversions, layout widths) + chart tick bump
+
 **UI hint**: yes
 
 ### Phase 24: Modal Content Config
@@ -268,5 +272,5 @@ Plans:
 | 20. Story Project Browser | v1.5 | - | Complete | 2026-04-06 |
 | 21. Email Capture Redesign | v1.5 | 2/2 | Complete | 2026-04-06 |
 | 22. Email Trigger Debounce | v1.6 | 0/1 | Not started | - |
-| 23. Global UI Scale | v1.6 | 0/? | Not started | - |
+| 23. Global UI Scale | v1.6 | 0/1 | Not started | - |
 | 24. Modal Content Config | v1.6 | 0/? | Not started | - |
