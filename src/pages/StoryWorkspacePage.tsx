@@ -9,6 +9,7 @@ import {
   hasShownThisSession,
   markShownThisSession,
 } from '../utils/emailCapture'
+import { useEmailDebounce } from '../hooks/useEmailDebounce'
 import { isChromeBrowser, shouldShowInstallCallout, recordInstallDismiss } from '../utils/pwaInstall'
 import PWAInstallCallout from '../components/PWAInstallCallout'
 import BoardHeader from '../components/BoardHeader'
@@ -50,7 +51,6 @@ export default function StoryWorkspacePage({ isInstallable = false }: { isInstal
   const [captureContext, setCaptureContext] = useState<CaptureContext | null>(null)
   const [showStoryInfo, setShowStoryInfo] = useState(false)
   const [showPdfModal, setShowPdfModal] = useState(false)
-  const beatThresholdCheckedRef = useRef(false)
   const [showInstallCallout, setShowInstallCallout] = useState(false)
   const installCalloutShownRef = useRef(false)
 
@@ -59,19 +59,13 @@ export default function StoryWorkspacePage({ isInstallable = false }: { isInstal
     saveStory(updatedStory)
   }, [])
 
-  const diagnostics = story ? runDiagnostics(story.steps) : []
+  const { resetDebounceTimer, handleBeatTextBlur } = useEmailDebounce(
+    story,
+    activeStepNumber,
+    setCaptureContext
+  )
 
-  // Trigger 1 — 4-beat threshold popup
-  useEffect(() => {
-    if (!story || beatThresholdCheckedRef.current) return
-    if (hasSubmittedEmail() || hasShownThisSession('act1')) return
-    const filledBeats = story.steps.filter(s => s.beatText.trim().length > 0).length
-    if (filledBeats >= 4) {
-      beatThresholdCheckedRef.current = true
-      markShownThisSession('act1')
-      setCaptureContext('act1')
-    }
-  }, [story])
+  const diagnostics = story ? runDiagnostics(story.steps) : []
 
   useEffect(() => {
 if (installCalloutShownRef.current) return
@@ -121,6 +115,8 @@ if (installCalloutShownRef.current) return
         s.stepNumber === activeStepNumber ? { ...s, beatText: value } : s
       ),
     })
+    // Reset idle timer on every keystroke — EMAIL-01, D-03
+    if (story) resetDebounceTimer()
   }
 
   function handleNotesChange(value: string) {
@@ -131,6 +127,8 @@ if (installCalloutShownRef.current) return
         s.stepNumber === activeStepNumber ? { ...s, notes: value } : s
       ),
     })
+    // D-04: Notes resets timer symmetrically with beat text — EMAIL-01
+    if (story) resetDebounceTimer()
   }
 
   function handleScoreChange(dimension: Dimension, value: number) {
@@ -300,6 +298,7 @@ if (installCalloutShownRef.current) return
             onBeatTextChange={handleBeatTextChange}
             onNotesChange={handleNotesChange}
             onScoreChange={handleScoreChange}
+            onBeatTextBlur={handleBeatTextBlur}
           />
         )}
       </div>

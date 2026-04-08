@@ -9,9 +9,10 @@ interface Props {
   onBeatTextChange: (value: string) => void
   onNotesChange: (value: string) => void
   onScoreChange: (dimension: Dimension, value: number) => void
+  onBeatTextBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void
 }
 
-export default function CardEditor({ step, onBeatTextChange, onNotesChange, onScoreChange }: Props) {
+export default function CardEditor({ step, onBeatTextChange, onNotesChange, onScoreChange, onBeatTextBlur }: Props) {
   const hint = STEP_HINTS[step.stepNumber]
   const examples = STEP_EXAMPLES[step.stepNumber]
 
@@ -72,6 +73,7 @@ export default function CardEditor({ step, onBeatTextChange, onNotesChange, onSc
             key={step.stepNumber}
             defaultValue={step.beatText}
             onChange={e => onBeatTextChange(e.target.value)}
+            onBlur={onBeatTextBlur}
             placeholder="What happens in this step of your story?"
             rows={6}
           />
