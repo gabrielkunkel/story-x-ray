@@ -1,38 +1,14 @@
 import { useState } from 'react'
 import { submitEmail, markShownThisSession } from '../utils/emailCapture'
+import { emailModalConfig } from '../config/emailModal'
 
-export type CaptureContext = 'act1' | 'export' | 'diagnostics' | 'examples' | 'early-access'
+// ── Modal content ────────────────────────────────────────────────────────
+// Edit src/config/emailModal.ts to change copy, image, bullets, and CTA text.
+// See README.md "Customize email modal" for instructions.
+// ─────────────────────────────────────────────────────────────────────────
 
-// ── Marketing config ─────────────────────────────────────────────────────
-// Edit these constants to change the email capture modal content.
-// To add a marketing image, place the file in public/ and set the path below.
-// See README.md "Customize email modal" for full instructions.
-// ──────────────────────────────────────────────────────────────────────────
-export const MODAL_IMAGE_SRC = ''  // e.g. '/marketing.png' — empty string = no image
-
-const COPY: Record<CaptureContext, { headline: string; body: string }> = {
-  'act1': {
-    headline: 'Your story is taking shape.',
-    body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
-  },
-  'export': {
-    headline: 'Your story map is ready.',
-    body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
-  },
-  'diagnostics': {
-    headline: 'Story diagnostics unlocked.',
-    body: 'Get 5 example story maps, a beat gap checklist, and the structure rescue guide. Free.',
-  },
-  'examples': {
-    headline: 'Get 5 example story maps.',
-    body: 'Plus a beat gap checklist, structure rescue guide, and early access to the 28-step mode.',
-  },
-  'early-access': {
-    headline: '28-step mode is coming.',
-    body: 'Get on the waitlist and receive 5 example story maps + the structure rescue guide.',
-  },
-}
-// ── End marketing config ─────────────────────────────────────────────────
+export type { CaptureContext } from '../config/emailModal'
+import type { CaptureContext } from '../config/emailModal'
 
 interface Props {
   context: CaptureContext
@@ -43,7 +19,9 @@ export default function EmailCaptureModal({ context, onClose }: Props) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
-  const { headline, body } = COPY[context]
+
+  const { imageSrc, ctaText, footer } = emailModalConfig.global
+  const { headline, subtitle, bullets } = emailModalConfig.contexts[context]
 
   function handleDismiss() {
     markShownThisSession(context)
@@ -71,17 +49,25 @@ export default function EmailCaptureModal({ context, onClose }: Props) {
           ×
         </button>
 
-        {MODAL_IMAGE_SRC && (
+        {imageSrc && (
           <img
             className="capture-modal__image"
-            src={MODAL_IMAGE_SRC}
+            src={imageSrc}
             alt=""
             aria-hidden="true"
           />
         )}
 
         <p className="capture-modal__headline">{headline}</p>
-        <p className="capture-modal__body">{body}</p>
+        <p className="capture-modal__body">{subtitle}</p>
+
+        {bullets.length > 0 && (
+          <ul className="capture-modal__bullets">
+            {bullets.map((bullet, i) => (
+              <li key={i}>{bullet}</li>
+            ))}
+          </ul>
+        )}
 
         {status === 'success' ? (
           <div className="capture-modal__success">
@@ -104,12 +90,16 @@ export default function EmailCaptureModal({ context, onClose }: Props) {
               className="btn-primary"
               disabled={status === 'loading' || !email.trim()}
             >
-              {status === 'loading' ? 'Sending…' : 'Send me the pack'}
+              {status === 'loading' ? 'Sending…' : ctaText}
             </button>
             {status === 'error' && (
               <p className="capture-modal__error">{errorMsg}</p>
             )}
           </form>
+        )}
+
+        {footer && (
+          <p className="capture-modal__footer">{footer}</p>
         )}
 
         <p className="capture-modal__skip" onClick={handleDismiss}>
