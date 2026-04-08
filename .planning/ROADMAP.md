@@ -228,7 +228,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 23-01-PLAN.md — CSS scale refactor (root font, rem conversions, layout widths) + chart tick bump
+- [x] 23-01-PLAN.md — CSS scale refactor (root font, rem conversions, layout widths) + chart tick bump
 
 **UI hint**: yes
 
@@ -242,7 +242,10 @@ Plans:
   3. `EmailCaptureModal` component reads exclusively from config and contains no hardcoded copy
   4. A developer can change all visible modal text by editing only `src/config/emailModal.ts` and redeploying
   5. README documents how to edit the config file, what each field does, how to use rich text, and the deploy workflow
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 24-01-PLAN.md — Config file creation, component refactor, README update
 
 ---
 
@@ -272,5 +275,5 @@ Plans:
 | 20. Story Project Browser | v1.5 | - | Complete | 2026-04-06 |
 | 21. Email Capture Redesign | v1.5 | 2/2 | Complete | 2026-04-06 |
 | 22. Email Trigger Debounce | v1.6 | 0/1 | Not started | - |
-| 23. Global UI Scale | v1.6 | 0/1 | Not started | - |
-| 24. Modal Content Config | v1.6 | 0/? | Not started | - |
+| 23. Global UI Scale | v1.6 | 1/1 | Complete   | 2026-04-08 |
+| 24. Modal Content Config | v1.6 | 0/1 | Not started | - |
