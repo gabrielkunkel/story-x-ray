@@ -211,8 +211,10 @@ See archived roadmap for phase details.
   2. Stopping typing in a beat field for 10 seconds after the threshold is met causes the modal to appear
   3. Clicking away from (blurring) a beat field that just completed the 4-beat threshold causes the modal to appear immediately
   4. The modal does not fire more than once per session from the same trigger path
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 1 plan
+
+Plans:
+- [ ] 22-PLAN-1.md — useEmailDebounce hook, StoryWorkspacePage wiring, CardEditor blur prop
 
 ### Phase 23: Global UI Scale
 **Goal**: The app reads comfortably at default zoom — text, spacing, and controls scale up proportionally without breaking layout
@@ -265,6 +267,6 @@ See archived roadmap for phase details.
 | 19. PWA Console Warning Fix | v1.5 | - | Complete | 2026-04-06 |
 | 20. Story Project Browser | v1.5 | - | Complete | 2026-04-06 |
 | 21. Email Capture Redesign | v1.5 | 2/2 | Complete | 2026-04-06 |
-| 22. Email Trigger Debounce | v1.6 | 0/? | Not started | - |
+| 22. Email Trigger Debounce | v1.6 | 0/1 | Not started | - |
 | 23. Global UI Scale | v1.6 | 0/? | Not started | - |
 | 24. Modal Content Config | v1.6 | 0/? | Not started | - |
