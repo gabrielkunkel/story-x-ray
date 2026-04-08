@@ -55,24 +55,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| EMAIL-01 | — | Pending |
-| EMAIL-02 | — | Pending |
-| EMAIL-03 | — | Pending |
-| SCALE-01 | — | Pending |
-| SCALE-02 | — | Pending |
-| SCALE-03 | — | Pending |
-| SCALE-04 | — | Pending |
-| MODAL-01 | — | Pending |
-| MODAL-02 | — | Pending |
-| MODAL-03 | — | Pending |
-| MODAL-04 | — | Pending |
-| MODAL-05 | — | Pending |
+| EMAIL-01 | Phase 22 | Pending |
+| EMAIL-02 | Phase 22 | Pending |
+| EMAIL-03 | Phase 22 | Pending |
+| SCALE-01 | Phase 23 | Pending |
+| SCALE-02 | Phase 23 | Pending |
+| SCALE-03 | Phase 23 | Pending |
+| SCALE-04 | Phase 23 | Pending |
+| MODAL-01 | Phase 24 | Pending |
+| MODAL-02 | Phase 24 | Pending |
+| MODAL-03 | Phase 24 | Pending |
+| MODAL-04 | Phase 24 | Pending |
+| MODAL-05 | Phase 24 | Pending |
 
 **Coverage:**
 - v1.6 requirements: 12 total
-- Mapped to phases: 0
-- Unmapped: 12 ⚠️
+- Mapped to phases: 12
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-08*
-*Last updated: 2026-04-08 after initial definition*
+*Last updated: 2026-04-07 after roadmap creation*

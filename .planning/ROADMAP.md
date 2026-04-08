@@ -7,7 +7,8 @@
 - ✅ **v1.2 Story Identity & Export** - Phases 11-14 (shipped 2026-04-05)
 - ✅ **v1.3 Export Polish & Card UX** - Phases 15-17 (shipped 2026-04-05) — [archive](.planning/milestones/v1.3-ROADMAP.md)
 - ✅ **v1.4 PWA Install Prompt** - Phase 18 (shipped 2026-04-06) — [archive](.planning/milestones/v1.4-ROADMAP.md)
-- 🚧 **v1.5 Stories Browser & Email Capture** - Phases 19-21 (in progress)
+- ✅ **v1.5 Stories Browser & Email Capture** - Phases 19-21 (shipped 2026-04-06) — [archive](.planning/milestones/v1.5-ROADMAP.md)
+- 🚧 **v1.6 Polish & Content Config** - Phases 22-24 (in progress)
 
 ## Phases
 
@@ -188,58 +189,54 @@ See archived roadmap for phase details.
 
 </details>
 
-<details open>
-<summary>🚧 v1.5 Stories Browser & Email Capture (Phases 19-21) - IN PROGRESS</summary>
+<details>
+<summary>✅ v1.5 Stories Browser & Email Capture (Phases 19-21) - SHIPPED 2026-04-06 — <a href=".planning/milestones/v1.5-ROADMAP.md">archive</a></summary>
 
-### Phase 19: PWA Console Warning Fix
-**Goal**: Remove the "Banner not shown" console warning by dropping `e.preventDefault()` from the `beforeinstallprompt` handler since `deferredPrompt.prompt()` is never called
-**Depends on**: Phase 18
-**Requirements**: PWA-03
-**Success Criteria** (what must be TRUE):
-  1. No "Banner not shown: beforeinstallpromptevent.preventDefault() called" message in Chrome console
-  2. The install callout still appears correctly when the app is installable
-**Plans**: 1 plan
-
-Plans:
-- [ ] 19-01-PLAN.md — Remove preventDefault from usePWAInstall hook
-
-### Phase 20: Story Project Browser
-**Goal**: Users can see and open all their saved stories from the start screen
-**Depends on**: Phase 19
-**Requirements**: STORIES-01, STORIES-02, STORIES-03, STORIES-04, STORIES-05
-**Success Criteria** (what must be TRUE):
-  1. Start screen lists all saved stories ordered by most recently updated
-  2. Each story shows title and last-updated date
-  3. Clicking a story navigates to its workspace
-  4. Each story has a delete action with a confirmation step
-  5. No stories → list is hidden, start screen unchanged
-**Plans**: 2 plans
-
-Plans:
-- [ ] 20-01-PLAN.md — Story list UI on StartPage
-- [ ] 20-02-PLAN.md — Delete story with confirmation
-
-**UI hint**: yes
-
-### Phase 21: Email Capture Redesign
-**Goal**: Trigger the email modal after any 4 beats are filled (not just Act I), and add optional marketing image + configurable copy to the modal
-**Depends on**: Phase 20
-**Requirements**: CAPTURE-01, CAPTURE-02, CAPTURE-03, CAPTURE-04, CAPTURE-05
-**Success Criteria** (what must be TRUE):
-  1. Email modal triggers when any 4 beats (beatText non-empty) exist across the whole story — not limited to Act I
-  2. Trigger is per-session: fires once per session if email not yet submitted
-  3. Modal optionally renders a marketing image above the headline when an image path is configured in source
-  4. Headline and body copy are defined in one place in source and easy to find
-  5. README.md explains how to update the image and copy
-**Plans**: 2 plans
-
-Plans:
-- [ ] 21-01-PLAN.md — Trigger logic change + configurable copy
-- [ ] 21-02-PLAN.md — Marketing image support in modal
-
-**UI hint**: yes
+See archived roadmap for phase details.
 
 </details>
+
+### 🚧 v1.6 Polish & Content Config (In Progress)
+
+**Milestone Goal:** Improve perceived scale and readability, fix email trigger timing, and make email modal copy editable as a standalone content file.
+
+## Phase Details
+
+### Phase 22: Email Trigger Debounce
+**Goal**: The email modal never interrupts a writer mid-typing — it waits for a pause or focus change
+**Depends on**: Phase 21
+**Requirements**: EMAIL-01, EMAIL-02, EMAIL-03
+**Success Criteria** (what must be TRUE):
+  1. Typing continuously in a beat field does not trigger the email modal, even after the 4-beat threshold is met
+  2. Stopping typing in a beat field for 10 seconds after the threshold is met causes the modal to appear
+  3. Clicking away from (blurring) a beat field that just completed the 4-beat threshold causes the modal to appear immediately
+  4. The modal does not fire more than once per session from the same trigger path
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 23: Global UI Scale
+**Goal**: The app reads comfortably at default zoom — text, spacing, and controls scale up proportionally without breaking layout
+**Depends on**: Phase 22
+**Requirements**: SCALE-01, SCALE-02, SCALE-03, SCALE-04
+**Success Criteria** (what must be TRUE):
+  1. App root font size is approximately 17px so body text is more readable without manual browser zoom
+  2. Card padding, form controls, and textarea height increase proportionally — no elements feel cramped or misaligned
+  3. Chart labels, legend, and stroke weight remain legible and do not overflow or clip at the new scale
+  4. Sidebar width and overall spacing maintain visual balance — nothing feels crowded or too sparse
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 24: Modal Content Config
+**Goal**: Email modal copy lives in a dedicated config file that any developer can edit without touching component logic
+**Depends on**: Phase 23
+**Requirements**: MODAL-01, MODAL-02, MODAL-03, MODAL-04, MODAL-05
+**Success Criteria** (what must be TRUE):
+  1. `src/config/emailModal.ts` exists as a standalone file containing all modal copy — title, subtitle, CTA text, bullets, image src, and optional footer
+  2. The config file supports rich/formatted content (HTML or safe structured equivalent) not limited to plain strings
+  3. `EmailCaptureModal` component reads exclusively from config and contains no hardcoded copy
+  4. A developer can change all visible modal text by editing only `src/config/emailModal.ts` and redeploying
+  5. README documents how to edit the config file, what each field does, how to use rich text, and the deploy workflow
+**Plans**: TBD
 
 ---
 
@@ -265,6 +262,9 @@ Plans:
 | 16. Export Dropdown | v1.3 | 1/1 | Complete | 2026-04-05 |
 | 17. List View Card Polish | v1.3 | 1/1 | Complete | 2026-04-05 |
 | 18. PWA Install Prompt | v1.4 | 2/2 | Complete | 2026-04-06 |
-| 19. PWA Console Warning Fix | v1.5 | 0/1 | Not started | - |
-| 20. Story Project Browser | v1.5 | 0/2 | Not started | - |
-| 21. Email Capture Redesign | v1.5 | 0/2 | Not started | - |
+| 19. PWA Console Warning Fix | v1.5 | - | Complete | 2026-04-06 |
+| 20. Story Project Browser | v1.5 | - | Complete | 2026-04-06 |
+| 21. Email Capture Redesign | v1.5 | 2/2 | Complete | 2026-04-06 |
+| 22. Email Trigger Debounce | v1.6 | 0/? | Not started | - |
+| 23. Global UI Scale | v1.6 | 0/? | Not started | - |
+| 24. Modal Content Config | v1.6 | 0/? | Not started | - |
