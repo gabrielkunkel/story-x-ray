@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: Polish & Content Config
-status: ready_to_plan
-stopped_at: v1.6 roadmap created — Phase 22 ready to plan
-last_updated: "2026-04-07T00:00:00.000Z"
-last_activity: 2026-04-07 -- v1.6 roadmap created (phases 22-24)
+status: planning
+stopped_at: Phase 22 context gathered (discuss mode)
+last_updated: "2026-04-08T15:23:20.103Z"
+last_activity: 2026-04-07 — v1.6 roadmap created
 progress:
   total_phases: 3
   completed_phases: 0
@@ -69,6 +69,6 @@ None identified. Phases 22 → 23 → 24 are independent enough that order is fl
 
 ## Session Continuity
 
-Last session: 2026-04-07
-Stopped at: v1.6 roadmap created
-Resume file: .planning/ROADMAP.md
+Last session: 2026-04-08T15:23:20.099Z
+Stopped at: Phase 22 context gathered (discuss mode)
+Resume file: .planning/phases/22-email-trigger-debounce/22-CONTEXT.md
