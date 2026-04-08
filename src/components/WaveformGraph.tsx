@@ -109,14 +109,14 @@ export default function WaveformGraph({ story, onStepHover }: Props) {
         >
           <XAxis
             dataKey="step"
-            tick={{ fontSize: 10, fill: 'var(--text)' }}
+            tick={{ fontSize: 11, fill: 'var(--text)' }}
             tickLine={false}
             axisLine={false}
           />
           <YAxis
             domain={[0, 10]}
             ticks={[0, 2, 4, 6, 8, 10]}
-            tick={{ fontSize: 10, fill: 'var(--text)' }}
+            tick={{ fontSize: 11, fill: 'var(--text)' }}
             tickLine={false}
             axisLine={false}
             width={20}
