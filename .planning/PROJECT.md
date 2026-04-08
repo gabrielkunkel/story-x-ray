@@ -121,17 +121,38 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current Milestone: v1.5 Stories Browser & Email Capture
+## Current State: v1.5 Shipped (2026-04-06)
 
-**Goal:** Give users access to all their saved stories from the start screen, fix the PWA console warning, and make the email capture modal more compelling with a smarter trigger and optional marketing image.
+**21 phases complete across 5 milestones.** The app is a fully installable PWA with a 16-step story board, waveform graph, diagnostics, multi-format export (PDF, Fountain, JSON, Markdown), story browser, and triggered email capture.
+
+**v1.5 delivered:**
+- PWA console warning eliminated (`beforeinstallprompt` cleanup)
+- Story browser on StartPage — list, open, delete all saved stories
+- Email trigger: any 4 beats filled across full story (not Act I only)
+- Email modal: configurable marketing image + copy with README documentation
+
+## Current Milestone: v1.6 Polish & Content Config
+
+**Goal:** Improve perceived scale and readability, fix email trigger timing, and make email modal copy editable as a standalone content file.
 
 **Target features:**
-- Remove PWA `beforeinstallprompt` console warning (drop unnecessary `preventDefault`)
-- Story browser on StartPage — list all saved stories, open or delete any of them
-- Email capture trigger: any 4 beats filled (not just Act I), once per session
-- Email modal: configurable marketing image + copy, hardcoded in source with README instructions
+- Email trigger debounce — modal fires after 10s inactivity or blur, never mid-type
+- Global UI scale increase — root font ~17px with proportional token-based scaling across cards, forms, chart, and spacing
+- Modal content config file — `src/config/emailModal.ts` with title, subtitle, CTA, bullets, image, footer; rich text body; component reads config only
 
 ## Previous Milestones
+
+<details>
+<summary>v1.5 Stories Browser & Email Capture (shipped 2026-04-06)</summary>
+
+**Goal:** Story browser, PWA console fix, smarter email trigger, configurable modal.
+- Story browser on StartPage — list all saved stories, open or delete with confirmation
+- PWA console warning eliminated (removed `e.preventDefault()` from `beforeinstallprompt`)
+- Email trigger: any 4 beats filled across all 16 steps (not Act I only)
+- Configurable marketing image + copy in `EmailCaptureModal.tsx` with README docs
+
+[Full archive](.planning/milestones/v1.5-ROADMAP.md)
+</details>
 
 <details>
 <summary>v1.4 PWA Install Prompt (shipped 2026-04-06)</summary>

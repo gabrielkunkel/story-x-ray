@@ -25,9 +25,10 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 
 ## Current Position
 
-Phase: All v1.5 phases complete (19–21)
-Status: v1.5 SHIPPED — ready for next milestone
-Last activity: 2026-04-07 -- v1.5 milestone archived
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-08 — Milestone v1.6 started
 
 Progress: [████████████████████] 21/21 phases complete across all milestones
 
