@@ -1106,6 +1106,25 @@ textarea {
   margin: 0;
 }
 
+.capture-modal__bullets {
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 4px 0 0;
+  padding-left: 1.25rem;
+
+  li {
+    margin-bottom: 2px;
+  }
+}
+
+.capture-modal__footer {
+  font-size: 0.75rem;
+  color: var(--text-muted, var(--text));
+  line-height: 1.4;
+  margin: 4px 0 0;
+}
+
 .capture-modal__form {
   display: flex;
   flex-direction: column;
