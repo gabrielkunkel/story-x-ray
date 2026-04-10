@@ -121,29 +121,31 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
-## Current State: v1.5 Shipped (2026-04-06)
+## Current State: v1.6 Shipped (2026-04-10)
 
-**21 phases complete across 5 milestones.** The app is a fully installable PWA with a 16-step story board, waveform graph, diagnostics, multi-format export (PDF, Fountain, JSON, Markdown), story browser, and triggered email capture.
+**24 phases complete across 6 milestones.** The app is a fully installable PWA with a 16-step story board, waveform graph, diagnostics, multi-format export (PDF, Fountain, JSON, Markdown), story browser, triggered email capture with debounced timing, and a developer-editable modal content config.
 
-**v1.5 delivered:**
-- PWA console warning eliminated (`beforeinstallprompt` cleanup)
-- Story browser on StartPage — list, open, delete all saved stories
-- Email trigger: any 4 beats filled across full story (not Act I only)
-- Email modal: configurable marketing image + copy with README documentation
-
-## Current Milestone: v1.6 Polish & Content Config
-
-**Goal:** Improve perceived scale and readability, fix email trigger timing, and make email modal copy editable as a standalone content file.
-
-**Target features:**
-- Email trigger debounce — modal fires after 10s inactivity or blur, never mid-type
-- Global UI scale increase — root font ~17px with proportional token-based scaling across cards, forms, chart, and spacing
-- Modal content config file — `src/config/emailModal.ts` with title, subtitle, CTA, bullets, image, footer; rich text body; component reads config only
+**v1.6 delivered:**
+- Email trigger debounce — modal fires after 10s inactivity or outside-board blur, never mid-typing
+- Global UI scale — root font bumped 16px → 17px with targeted rem conversions; sidebar and board grid widened
+- Modal content config — `src/config/emailModal.ts` with typed per-context copy; EmailCaptureModal reads config only; README documents all fields
 
 ## Previous Milestones
 
 <details>
+<summary>v1.6 Polish & Content Config (shipped 2026-04-10)</summary>
+
+**Goal:** Improve perceived scale and readability, fix email trigger timing, and make email modal copy editable as a standalone content file.
+- Email trigger debounce — `useEmailDebounce` hook with 10s idle timer and outside-board blur detection
+- Global UI scale — root font 17px, rem conversions across all UI controls, sidebar 350px, board column 185px
+- Modal content config — `src/config/emailModal.ts`; EmailCaptureModal fully decoupled from hardcoded copy; README documented
+
+[Full archive](.planning/milestones/v1.6-ROADMAP.md)
+</details>
+
+<details>
 <summary>v1.5 Stories Browser & Email Capture (shipped 2026-04-06)</summary>
+
 
 **Goal:** Story browser, PWA console fix, smarter email trigger, configurable modal.
 - Story browser on StartPage — list all saved stories, open or delete with confirmation

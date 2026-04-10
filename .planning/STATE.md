@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.6
 milestone_name: Polish & Content Config
-status: complete
-stopped_at: Phase 24 complete
-last_updated: "2026-04-08T23:55:00.000Z"
-last_activity: 2026-04-08 -- Phase 24 complete
+status: completed
+stopped_at: Phase 24 complete — milestone v1.6 all phases done
+last_updated: "2026-04-10T13:17:01.125Z"
+last_activity: 2026-04-10
 progress:
   total_phases: 3
   completed_phases: 3
@@ -18,20 +18,19 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-07)
+See: .planning/PROJECT.md (updated 2026-04-10)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** Milestone v1.6 complete — all 3 phases done
+**Current focus:** Planning next milestone (v1.7)
 
 ## Current Position
 
-Phase: 24 (modal-content-config) — COMPLETE ✓
-Plan: 1 of 1
-Next: Milestone v1.6 complete — run `/gsd-complete-milestone` or `/gsd-new-milestone`
-Status: All phases complete
-Last activity: 2026-04-08 -- Phase 24 complete
+Phase: v1.6 milestone archived ✓
+Next: `/gsd-new-milestone` to start v1.7
+Status: Between milestones
+Last activity: 2026-04-10
 
-Progress: [██████████] 100% (v1.6) — 24/24 all-time phases complete
+Progress: [██████████] v1.6 shipped — 24/24 all-time phases complete
 
 ## Performance Metrics
 

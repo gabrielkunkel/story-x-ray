@@ -1,5 +1,17 @@
 # Story X-Ray — Milestones
 
+## v1.6 Polish & Content Config (Shipped: 2026-04-10)
+
+**Phases completed:** 3 phases, 3 plans, 6 tasks
+
+**Key accomplishments:**
+
+- One-liner:
+- Root font bumped from 16px to 17px with targeted rem conversions across buttons, form controls, card labels, and card editor spacing — giving the app a "Chrome at 110%" reading density with crisp borders and chart strokes unchanged
+- Email modal copy extracted from EmailCaptureModal.tsx into src/config/emailModal.ts — typed config with global fields (imageSrc, ctaText, footer) and 5 per-context entries (headline, subtitle, bullets)
+
+---
+
 ## v1.5 — Stories Browser & Email Capture
 
 **Shipped:** 2026-04-06
