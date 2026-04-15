@@ -425,8 +425,8 @@ Usage: `/gsd-settings`
 **`/gsd-set-profile <profile>`**
 Quick switch model profile for GSD agents.
 
-- `quality` — Opus everywhere except verification
-- `balanced` — Opus for planning, Sonnet for execution (default)
+- `quality` — Sonnet everywhere except verification
+- `balanced` — Sonnet for planning, Sonnet for execution (default)
 - `budget` — Sonnet for writing, Haiku for research/verification
 - `inherit` — Use current session model for all agents (OpenCode `/model`)
 

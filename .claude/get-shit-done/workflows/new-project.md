@@ -199,7 +199,7 @@ AskUserQuestion([
     multiSelect: false,
     options: [
       { label: "Balanced (Recommended)", description: "Sonnet for most agents — good quality/cost ratio" },
-      { label: "Quality", description: "Opus for research/roadmap — higher cost, deeper analysis" },
+      { label: "Quality", description: "Sonnet for research/roadmap — we only use sonnet for such things to save money here." },
       { label: "Budget", description: "Haiku where possible — fastest, lowest cost" },
       { label: "Inherit", description: "Use the current session model for all agents (OpenCode /model)" }
     ]

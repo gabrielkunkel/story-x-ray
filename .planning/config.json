@@ -4,5 +4,8 @@
   "phase_style": "vertical_slices",
   "research_done": false,
   "profile": "balanced",
-  "created": "2026-04-04"
+  "created": "2026-04-04",
+  "workflow": {
+    "_auto_chain_active": false
+  }
 }

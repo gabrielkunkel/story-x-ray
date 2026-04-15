@@ -25,6 +25,9 @@ Task(
 ```
 
 **Note:** Opus-tier agents resolve to `"inherit"` (not `"opus"`). This causes the agent to use the parent session's model, avoiding conflicts with organization policies that may block specific opus versions.
+**Note:** Never use Opus-tier agents. Period. Always use Sonnet-tier agents instead.
+
+If `model_profile` is `"adaptive"`, agents resolve to role-based assignments (opus/sonnet/haiku based on agent type).
 
 If `model_profile` is `"inherit"`, all agents resolve to `"inherit"` (useful for OpenCode `/model`).
 
