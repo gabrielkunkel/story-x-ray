@@ -105,4 +105,4 @@ Requirements for GitHub Pages deployment milestone.
 
 ---
 *Requirements defined: 2026-04-18*
-*Last updated: 2026-04-18 after initial definition*
+*Last updated: 2026-04-18 — traceability confirmed at roadmap creation*

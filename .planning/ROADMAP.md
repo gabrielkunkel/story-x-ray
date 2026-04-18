@@ -9,6 +9,7 @@
 - ✅ **v1.4 PWA Install Prompt** - Phase 18 (shipped 2026-04-06) — [archive](.planning/milestones/v1.4-ROADMAP.md)
 - ✅ **v1.5 Stories Browser & Email Capture** - Phases 19-21 (shipped 2026-04-06) — [archive](.planning/milestones/v1.5-ROADMAP.md)
 - ✅ **v1.6 Polish & Content Config** - Phases 22-24 (shipped 2026-04-10) — [archive](.planning/milestones/v1.6-ROADMAP.md)
+- 🚧 **v1.7 GitHub Pages Deployment** - Phases 25-27 (in progress)
 
 ## Phases
 
@@ -205,6 +206,57 @@ See archived roadmap for phase details.
 
 </details>
 
+### 🚧 v1.7 GitHub Pages Deployment (In Progress)
+
+**Milestone Goal:** Make the app deployable to GitHub Pages via ENV-var-controlled base path, base-aware PWA manifest, HashRouter migration, GitHub Actions CI/CD, and updated documentation.
+
+- [ ] **Phase 25: Build Config & PWA** - Rewrite vite.config.ts with loadEnv, base-aware PWA manifest, env files, and build scripts
+- [ ] **Phase 26: Router & Path Migration** - Replace BrowserRouter with HashRouter and audit source for root-absolute paths
+- [ ] **Phase 27: CI/CD & Documentation** - GitHub Actions deploy workflow and README deployment docs
+
+## Phase Details
+
+### Phase 25: Build Config & PWA
+**Goal**: The Vite build is fully ENV-var-controlled and produces a base-aware PWA that resolves assets and service worker correctly under any subpath host
+**Depends on**: Phase 24
+**Requirements**: VITE-01, VITE-02, VITE-03, PWA-01, PWA-02, PWA-03, ENV-01, ENV-02, ENV-03, ENV-04, BUILD-01, BUILD-02
+**Success Criteria** (what must be TRUE):
+  1. Running `npm run build` with no env file set produces a build with base `/` that works locally
+  2. Running `npm run build:prod` with `.env.production` produces a build with base `/story-x-ray/` where all asset URLs include the subpath
+  3. The PWA manifest `start_url` and icon `src` paths reflect the active base in each build output
+  4. `.env.example` exists and documents `VITE_BASE_PATH`; `.env` and `.env.production` are committed with correct per-mode values
+**Plans**: TBD
+
+Plans:
+- [ ] 25-01: vite.config.ts rewrite with loadEnv + base-aware VitePWA manifest + env files + build scripts
+
+### Phase 26: Router & Path Migration
+**Goal**: The app navigates correctly on GitHub Pages static hosting — no 404s on direct URL access or page refresh
+**Depends on**: Phase 25
+**Requirements**: ROUTE-01, PATH-01
+**Success Criteria** (what must be TRUE):
+  1. Navigating directly to `/#/setup` or `/#/story/:id` in a browser loads the correct page without a 404
+  2. Refreshing the browser on any route keeps the user on the correct page
+  3. No root-absolute paths (e.g. `/icons/...`) remain in source files that Vite would not rewrite during build
+**Plans**: TBD
+
+Plans:
+- [ ] 26-01: HashRouter migration + root-absolute path audit and fix
+
+### Phase 27: CI/CD & Documentation
+**Goal**: Pushing to `main` automatically deploys to GitHub Pages and the README gives a developer everything needed to understand, run, and deploy the project
+**Depends on**: Phase 26
+**Requirements**: CI-01, CI-02, CI-03, CI-04, CI-05, DOC-01, DOC-02, DOC-03, DOC-04
+**Success Criteria** (what must be TRUE):
+  1. A push to `main` triggers the workflow and deploys the production build to GitHub Pages without manual steps
+  2. The workflow uses split build/deploy jobs with correct permissions; overlapping runs are cancelled automatically
+  3. A developer reading the README can set up env files, run dev and prod builds, enable GitHub Pages, and understand the `#/` routing convention without asking anyone
+**Plans**: TBD
+
+Plans:
+- [ ] 27-01: GitHub Actions deploy.yml workflow
+- [ ] 27-02: README deployment documentation
+
 ---
 
 ## Progress
@@ -235,3 +287,6 @@ See archived roadmap for phase details.
 | 22. Email Trigger Debounce | v1.6 | 1/1 | Complete | 2026-04-08 |
 | 23. Global UI Scale | v1.6 | 1/1 | Complete | 2026-04-08 |
 | 24. Modal Content Config | v1.6 | 1/1 | Complete | 2026-04-08 |
+| 25. Build Config & PWA | v1.7 | 0/1 | Not started | - |
+| 26. Router & Path Migration | v1.7 | 0/1 | Not started | - |
+| 27. CI/CD & Documentation | v1.7 | 0/2 | Not started | - |
