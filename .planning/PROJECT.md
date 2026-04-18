@@ -121,6 +121,20 @@ Email capture is triggered (not gated) after user experiences value:
 5. Use the 16-step system as the canonical language
 6. No AI unless explicitly added later
 
+## Current Milestone: v1.7 GitHub Pages Deployment
+
+**Goal:** Make the app deployable to GitHub Pages via ENV-var-controlled base path, base-aware PWA manifest, HashRouter migration, GitHub Actions CI/CD, and updated documentation.
+
+**Target features:**
+- ENV-var base path — `vite.config.ts` reads `VITE_BASE_PATH` via `loadEnv`, no hardcoded path
+- Base-aware PWA manifest — `start_url` and icon `src` computed from `base`
+- Env files — `.env`, `.env.production`, `.env.example` with explicit per-mode config
+- `build:prod` script — `vite build --mode production` for GitHub Pages deployment
+- HashRouter migration — `BrowserRouter` → `HashRouter` for static hosting compatibility
+- Source path audit — fix any root-absolute paths that break under subpath hosting
+- GitHub Actions workflow — split build/deploy jobs deploying `dist/` to GitHub Pages
+- README documentation — env files, dev/prod commands, Pages setup steps, routing notes
+
 ## Current State: v1.6 Shipped (2026-04-10)
 
 **24 phases complete across 6 milestones.** The app is a fully installable PWA with a 16-step story board, waveform graph, diagnostics, multi-format export (PDF, Fountain, JSON, Markdown), story browser, triggered email capture with debounced timing, and a developer-editable modal content config.
