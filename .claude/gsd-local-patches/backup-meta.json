@@ -1,0 +1,25 @@
+{
+  "backed_up_at": "2026-04-18T20:27:30.779Z",
+  "from_version": "1.34.2",
+  "from_manifest_timestamp": "2026-04-07T13:15:03.404Z",
+  "files": [
+    "get-shit-done/bin/lib/core.cjs",
+    "get-shit-done/bin/lib/model-profiles.cjs",
+    "get-shit-done/references/model-profile-resolution.md",
+    "get-shit-done/references/model-profiles.md",
+    "get-shit-done/workflows/execute-phase.md",
+    "get-shit-done/workflows/help.md",
+    "get-shit-done/workflows/new-project.md",
+    "get-shit-done/workflows/settings.md"
+  ],
+  "pristine_hashes": {
+    "get-shit-done/bin/lib/core.cjs": "4159b1bf7e3d2a96529ebce058b3c2a87ea6f02c8d2ee9d7556a7be044e71542",
+    "get-shit-done/bin/lib/model-profiles.cjs": "c74db57dc599ba00dfea5f6e1288784ad183d318746db1b06087e35fc763640f",
+    "get-shit-done/references/model-profile-resolution.md": "701d74fab595c35aeb0673c3005eeabf47978643313160966888ad2f7bf4e1e4",
+    "get-shit-done/references/model-profiles.md": "c7921f1f012c4db7d465038bae4d8eb280dbe148ef9787e68268ed6bf9e9a97a",
+    "get-shit-done/workflows/execute-phase.md": "49cdf94fc1003b6a4914aba734d4a0561e2ea346ff861693e293d1e58d089789",
+    "get-shit-done/workflows/help.md": "72ab62222072d1f95324fef088af8fb23bd473429f622dc66059b0d579e08a55",
+    "get-shit-done/workflows/new-project.md": "d7a5491aa0fb294249b87ca97880705208f4858aae2a52d05d6e67abf5015584",
+    "get-shit-done/workflows/settings.md": "a0973e321067663b38b0fa4916bf400a19d135c89a2b95a48f0902817c818b77"
+  }
+}
