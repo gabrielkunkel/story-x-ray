@@ -4,14 +4,14 @@ milestone: v1.7
 milestone_name: GitHub Pages Deployment
 status: active
 stopped_at: null
-last_updated: "2026-04-18T00:00:00.000Z"
-last_activity: 2026-04-18
+last_updated: "2026-04-19T04:05:53Z"
+last_activity: 2026-04-19
 progress:
   total_phases: 3
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 1
+  completed_plans: 1
+  percent: 33
 ---
 
 # Story X-Ray — Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-18)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** v1.7 GitHub Pages Deployment — roadmap created, ready to plan Phase 25
+**Current focus:** v1.7 GitHub Pages Deployment — Phase 25 complete, ready for Phase 26 (HashRouter migration)
 
 ## Current Position
 
-Phase: 25 (not started)
+Phase: 26 (not started)
 Plan: —
-Status: Roadmap created
-Last activity: 2026-04-18 — v1.7 roadmap written (3 phases: 25, 26, 27)
+Status: Phase 25 complete
+Last activity: 2026-04-19 — Phase 25 Plan 01 executed: vite.config.ts loadEnv rewrite + base-aware PWA manifest + env files + build:prod script
 
 ## Accumulated Context
 
@@ -41,6 +41,9 @@ Last activity: 2026-04-18 — v1.7 roadmap written (3 phases: 25, 26, 27)
 - [v1.7]: App uses BrowserRouter — must migrate to HashRouter for GitHub Pages static hosting compatibility (direct navigations to /setup and /story/:id return 404 on static hosts)
 - [v1.7]: vite.config.ts needs full rewrite to use defineConfig(({ mode }) => ...) + loadEnv pattern; VITE_BASE_PATH env var controls base path, defaulting to '/'
 - [v1.7]: Phase 25 (build config) must complete before Phase 26 (router migration) so HashRouter can be tested against the correct base; Phase 27 (CI/CD) depends on both
+- [Phase 25]: build:prod uses --mode gh-pages (not production) — Vite default build mode is production so .env.production would be loaded by plain npm run build too; gh-pages mode keeps the two builds distinct
+- [Phase 25]: env file is .env.gh-pages (not .env.production) — matches --mode gh-pages; plain npm run build loads only .env (VITE_BASE_PATH=/); build:prod loads .env.gh-pages (VITE_BASE_PATH=/story-x-ray/)
+- [Phase 25]: Phase 27 CI/CD workflow must call npm run build:prod (not npm run build:production or any other variant)
 
 ### Pending Todos
 
@@ -52,6 +55,6 @@ None identified.
 
 ## Session Continuity
 
-Last session: 2026-04-18T00:00:00.000Z
-Stopped at: Roadmap created for v1.7 (Phases 25-27)
-Next: Run `/gsd-plan-phase 25` to plan Build Config & PWA phase
+Last session: 2026-04-19T04:05:53Z
+Stopped at: Phase 25 Plan 01 complete — vite.config.ts loadEnv rewrite, base-aware PWA manifest, env files, build:prod script
+Next: Execute Phase 26 (Router & Path Migration) — HashRouter migration + root-absolute path audit
