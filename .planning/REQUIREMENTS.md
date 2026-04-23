@@ -17,7 +17,7 @@ Requirements for GitHub Pages deployment milestone.
 
 - [x] **PWA-01**: `start_url` in the manifest uses the computed `base`, not hardcoded `'/'`
 - [x] **PWA-02**: Icon `src` paths in the manifest are built from the computed `base` (e.g. `${base}icons/icon-192.png`)
-- [ ] **PWA-03**: Service worker and manifest resolve correctly under a subpath host (human verification pending)
+- [x] **PWA-03**: Service worker and manifest resolve correctly under a subpath host
 
 ### Environment Files
 
@@ -79,7 +79,7 @@ Requirements for GitHub Pages deployment milestone.
 | VITE-03 | Phase 25 | Complete |
 | PWA-01 | Phase 25 | Complete |
 | PWA-02 | Phase 25 | Complete |
-| PWA-03 | Phase 25 | Human verify pending |
+| PWA-03 | Phase 25 | Complete |
 | ENV-01 | Phase 25 | Complete |
 | ENV-02 | Phase 25 | Complete |
 | ENV-03 | Phase 25 | Complete |
