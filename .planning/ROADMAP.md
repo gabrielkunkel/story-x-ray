@@ -222,9 +222,9 @@ See archived roadmap for phase details.
 **Requirements**: VITE-01, VITE-02, VITE-03, PWA-01, PWA-02, PWA-03, ENV-01, ENV-02, ENV-03, ENV-04, BUILD-01, BUILD-02
 **Success Criteria** (what must be TRUE):
   1. Running `npm run build` with no env file set produces a build with base `/` that works locally
-  2. Running `npm run build:prod` with `.env.production` produces a build with base `/story-x-ray/` where all asset URLs include the subpath
+  2. Running `npm run build:prod` with `.env.gh-pages` produces a build with base `/story-x-ray/` where all asset URLs include the subpath
   3. The PWA manifest `start_url` and icon `src` paths reflect the active base in each build output
-  4. `.env.example` exists and documents `VITE_BASE_PATH`; `.env` and `.env.production` are committed with correct per-mode values
+  4. `.env.example` exists and documents `VITE_BASE_PATH`; `.env` and `.env.gh-pages` are committed with correct per-mode values
 **Plans**: 1 plan
 
 Plans:

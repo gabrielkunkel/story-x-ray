@@ -9,27 +9,27 @@ Requirements for GitHub Pages deployment milestone.
 
 ### Vite Configuration
 
-- [ ] **VITE-01**: `vite.config.ts` uses `defineConfig(({ mode }) => ...)` + `loadEnv` to read env vars for the active mode
-- [ ] **VITE-02**: App base path is controlled by `VITE_BASE_PATH` env var, defaulting to `'/'` when not set
-- [ ] **VITE-03**: All existing config (React plugin, `optimizeDeps`, VitePWA plugin) is preserved
+- [x] **VITE-01**: `vite.config.ts` uses `defineConfig(({ mode }) => ...)` + `loadEnv` to read env vars for the active mode
+- [x] **VITE-02**: App base path is controlled by `VITE_BASE_PATH` env var, defaulting to `'/'` when not set
+- [x] **VITE-03**: All existing config (React plugin, `optimizeDeps`, VitePWA plugin) is preserved
 
 ### PWA Manifest
 
-- [ ] **PWA-01**: `start_url` in the manifest uses the computed `base`, not hardcoded `'/'`
-- [ ] **PWA-02**: Icon `src` paths in the manifest are built from the computed `base` (e.g. `${base}icons/icon-192.png`)
-- [ ] **PWA-03**: Service worker and manifest resolve correctly under a subpath host
+- [x] **PWA-01**: `start_url` in the manifest uses the computed `base`, not hardcoded `'/'`
+- [x] **PWA-02**: Icon `src` paths in the manifest are built from the computed `base` (e.g. `${base}icons/icon-192.png`)
+- [ ] **PWA-03**: Service worker and manifest resolve correctly under a subpath host (human verification pending)
 
 ### Environment Files
 
-- [ ] **ENV-01**: `.env.example` documents `VITE_BASE_PATH` and its purpose
-- [ ] **ENV-02**: `.env` sets `VITE_BASE_PATH=/` for local development
-- [ ] **ENV-03**: `.env.production` sets `VITE_BASE_PATH=/story-x-ray/` for GitHub Pages
-- [ ] **ENV-04**: `.gitignore` preserves correct entries (excludes `.env.local`/`*.local` but commits `.env` and `.env.production`)
+- [x] **ENV-01**: `.env.example` documents `VITE_BASE_PATH` and its purpose
+- [x] **ENV-02**: `.env` sets `VITE_BASE_PATH=/` for local development
+- [x] **ENV-03**: `.env.gh-pages` sets `VITE_BASE_PATH=/story-x-ray/` for GitHub Pages (loaded via `--mode gh-pages`; `.env.production` not used — Vite's default build mode is `production` which would cause `.env.production` to load on `npm run build` too)
+- [x] **ENV-04**: `.gitignore` preserves correct entries (excludes `.env.local`/`*.local` but commits `.env` and `.env.gh-pages`)
 
 ### Build Scripts
 
-- [ ] **BUILD-01**: `package.json` retains `"build": "tsc -b && vite build"` for local/generic use
-- [ ] **BUILD-02**: `package.json` adds `"build:prod": "tsc -b && vite build --mode production"` for GitHub Pages deployment
+- [x] **BUILD-01**: `package.json` retains `"build": "tsc -b && vite build"` for local/generic use
+- [x] **BUILD-02**: `package.json` adds `"build:prod": "tsc -b && vite build --mode gh-pages"` for GitHub Pages deployment
 
 ### Routing
 
@@ -49,7 +49,7 @@ Requirements for GitHub Pages deployment milestone.
 
 ### Documentation
 
-- [ ] **DOC-01**: README explains what `.env`, `.env.production`, and `.env.example` are for
+- [ ] **DOC-01**: README explains what `.env`, `.env.gh-pages`, and `.env.example` are for
 - [ ] **DOC-02**: README documents `npm run dev` (local) and `npm run build:prod` (deployment) commands
 - [ ] **DOC-03**: README includes GitHub Pages setup steps: Settings → Pages → Source: GitHub Actions
 - [ ] **DOC-04**: README notes the HashRouter change and that routes use `#/` prefix
@@ -74,18 +74,18 @@ Requirements for GitHub Pages deployment milestone.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| VITE-01 | Phase 25 | Pending |
-| VITE-02 | Phase 25 | Pending |
-| VITE-03 | Phase 25 | Pending |
-| PWA-01 | Phase 25 | Pending |
-| PWA-02 | Phase 25 | Pending |
-| PWA-03 | Phase 25 | Pending |
-| ENV-01 | Phase 25 | Pending |
-| ENV-02 | Phase 25 | Pending |
-| ENV-03 | Phase 25 | Pending |
-| ENV-04 | Phase 25 | Pending |
-| BUILD-01 | Phase 25 | Pending |
-| BUILD-02 | Phase 25 | Pending |
+| VITE-01 | Phase 25 | Complete |
+| VITE-02 | Phase 25 | Complete |
+| VITE-03 | Phase 25 | Complete |
+| PWA-01 | Phase 25 | Complete |
+| PWA-02 | Phase 25 | Complete |
+| PWA-03 | Phase 25 | Human verify pending |
+| ENV-01 | Phase 25 | Complete |
+| ENV-02 | Phase 25 | Complete |
+| ENV-03 | Phase 25 | Complete |
+| ENV-04 | Phase 25 | Complete |
+| BUILD-01 | Phase 25 | Complete |
+| BUILD-02 | Phase 25 | Complete |
 | ROUTE-01 | Phase 26 | Pending |
 | PATH-01 | Phase 26 | Pending |
 | CI-01 | Phase 27 | Pending |
@@ -105,4 +105,4 @@ Requirements for GitHub Pages deployment milestone.
 
 ---
 *Requirements defined: 2026-04-18*
-*Last updated: 2026-04-18 — traceability confirmed at roadmap creation*
+*Last updated: 2026-04-23 — Phase 25 complete; ENV-03/BUILD-02 updated to reflect gh-pages mode decision; PWA-03 human verify pending*
