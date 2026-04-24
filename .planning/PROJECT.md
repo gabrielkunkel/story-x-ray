@@ -135,8 +135,16 @@ Email capture is triggered (not gated) after user experiences value:
 - GitHub Actions workflow — split build/deploy jobs deploying `dist/` to GitHub Pages
 - README documentation — env files, dev/prod commands, Pages setup steps, routing notes
 
-## Current State: v1.6 Shipped (2026-04-10)
+## Current State: v1.7 In Progress (2026-04-24)
 
+**26 phases complete across 6 milestones + v1.7 in progress.** Phase 26 complete: HashRouter migration done, root-absolute path audit passed. Phase 27 (CI/CD & Documentation) is next — GitHub Actions deploy workflow + README deployment docs.
+
+**v1.7 progress:**
+- Phase 25 complete: `vite.config.ts` rewritten with `loadEnv`, base-aware PWA manifest, `.env`/`.env.gh-pages` env files, `build:prod` script
+- Phase 26 complete: `BrowserRouter` → `HashRouter` in `src/App.tsx`; zero root-absolute asset paths confirmed; ROUTE-01 and PATH-01 satisfied
+- Phase 27 pending: GitHub Actions `deploy.yml` + README deployment documentation
+
+**Previously (v1.6, shipped 2026-04-10):**
 **24 phases complete across 6 milestones.** The app is a fully installable PWA with a 16-step story board, waveform graph, diagnostics, multi-format export (PDF, Fountain, JSON, Markdown), story browser, triggered email capture with debounced timing, and a developer-editable modal content config.
 
 **v1.6 delivered:**
