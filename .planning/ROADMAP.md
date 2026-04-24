@@ -211,7 +211,7 @@ See archived roadmap for phase details.
 **Milestone Goal:** Make the app deployable to GitHub Pages via ENV-var-controlled base path, base-aware PWA manifest, HashRouter migration, GitHub Actions CI/CD, and updated documentation.
 
 - [x] **Phase 25: Build Config & PWA** - Rewrite vite.config.ts with loadEnv, base-aware PWA manifest, env files, and build scripts
-- [ ] **Phase 26: Router & Path Migration** - Replace BrowserRouter with HashRouter and audit source for root-absolute paths
+- [x] **Phase 26: Router & Path Migration** - Replace BrowserRouter with HashRouter and audit source for root-absolute paths
 - [ ] **Phase 27: CI/CD & Documentation** - GitHub Actions deploy workflow and README deployment docs
 
 ## Phase Details
@@ -238,10 +238,10 @@ Plans:
   1. Navigating directly to `/#/setup` or `/#/story/:id` in a browser loads the correct page without a 404
   2. Refreshing the browser on any route keeps the user on the correct page
   3. No root-absolute paths (e.g. `/icons/...`) remain in source files that Vite would not rewrite during build
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 26-01: HashRouter migration + root-absolute path audit and fix
+- [x] 26-01-PLAN.md — HashRouter migration + root-absolute path audit and fix
 
 ### Phase 27: CI/CD & Documentation
 **Goal**: Pushing to `main` automatically deploys to GitHub Pages and the README gives a developer everything needed to understand, run, and deploy the project
@@ -288,5 +288,5 @@ Plans:
 | 23. Global UI Scale | v1.6 | 1/1 | Complete | 2026-04-08 |
 | 24. Modal Content Config | v1.6 | 1/1 | Complete | 2026-04-08 |
 | 25. Build Config & PWA | v1.7 | 1/1 | Complete | 2026-04-19 |
-| 26. Router & Path Migration | v1.7 | 0/1 | Not started | - |
+| 26. Router & Path Migration | v1.7 | 1/1 | Complete | 2026-04-24 |
 | 27. CI/CD & Documentation | v1.7 | 0/2 | Not started | - |

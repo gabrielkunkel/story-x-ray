@@ -4,14 +4,14 @@ milestone: v1.7
 milestone_name: GitHub Pages Deployment
 status: active
 stopped_at: null
-last_updated: "2026-04-19T04:05:53Z"
-last_activity: 2026-04-19
+last_updated: "2026-04-24T00:00:00Z"
+last_activity: 2026-04-24
 progress:
   total_phases: 3
-  completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
-  percent: 33
+  completed_phases: 2
+  total_plans: 3
+  completed_plans: 2
+  percent: 67
 ---
 
 # Story X-Ray — Project State
@@ -21,14 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-18)
 
 **Core value:** A 16-step architecture board that helps writers see, construct, and refine the complete shape of their story
-**Current focus:** v1.7 GitHub Pages Deployment — Phase 25 complete, ready for Phase 26 (HashRouter migration)
+**Current focus:** v1.7 GitHub Pages Deployment — Phase 27 next (CI/CD & Documentation)
 
 ## Current Position
 
-Phase: 26 (not started)
-Plan: —
-Status: Phase 25 complete
-Last activity: 2026-04-19 — Phase 25 Plan 01 executed: vite.config.ts loadEnv rewrite + base-aware PWA manifest + env files + build:prod script
+Phase: 27 (Ready to plan)
+Status: Phase 26 complete — advancing to Phase 27 (CI/CD & Documentation)
+Last activity: 2026-04-24 — Phase 26 complete: HashRouter migration + root-absolute path audit (human-approved)
 
 ## Accumulated Context
 
@@ -44,6 +43,7 @@ Last activity: 2026-04-19 — Phase 25 Plan 01 executed: vite.config.ts loadEnv 
 - [Phase 25]: build:prod uses --mode gh-pages (not production) — Vite default build mode is production so .env.production would be loaded by plain npm run build too; gh-pages mode keeps the two builds distinct
 - [Phase 25]: env file is .env.gh-pages (not .env.production) — matches --mode gh-pages; plain npm run build loads only .env (VITE_BASE_PATH=/); build:prod loads .env.gh-pages (VITE_BASE_PATH=/story-x-ray/)
 - [Phase 25]: Phase 27 CI/CD workflow must call npm run build:prod (not npm run build:production or any other variant)
+- [Phase 26]: HashRouter migration complete — src/App.tsx uses HashRouter; useNavigate() call sites unchanged (HashRouter handles # prefix internally); no root-absolute asset paths found in .tsx/.ts/.css files
 
 ### Pending Todos
 
@@ -55,6 +55,6 @@ None identified.
 
 ## Session Continuity
 
-Last session: 2026-04-19T04:05:53Z
-Stopped at: Phase 25 Plan 01 complete — vite.config.ts loadEnv rewrite, base-aware PWA manifest, env files, build:prod script
-Next: Execute Phase 26 (Router & Path Migration) — HashRouter migration + root-absolute path audit
+Last session: 2026-04-24T00:00:00Z
+Stopped at: Phase 26 Plan 01 complete — HashRouter migration, root-absolute path audit passed, human-approved
+Next: Plan Phase 27 (CI/CD & Documentation) — GitHub Actions deploy.yml + README deployment docs

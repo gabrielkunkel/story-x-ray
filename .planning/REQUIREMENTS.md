@@ -33,11 +33,11 @@ Requirements for GitHub Pages deployment milestone.
 
 ### Routing
 
-- [ ] **ROUTE-01**: `BrowserRouter` replaced with `HashRouter` so direct navigation to `/setup` and `/story/:id` works on GitHub Pages static hosting
+- [x] **ROUTE-01**: `BrowserRouter` replaced with `HashRouter` so direct navigation to `/setup` and `/story/:id` works on GitHub Pages static hosting
 
 ### Source Path Audit
 
-- [ ] **PATH-01**: No root-absolute paths (e.g. `/icons/...`, `/manifest...`) remain in source that Vite would not rewrite automatically
+- [x] **PATH-01**: No root-absolute paths (e.g. `/icons/...`, `/manifest...`) remain in source that Vite would not rewrite automatically
 
 ### GitHub Actions
 
@@ -86,8 +86,8 @@ Requirements for GitHub Pages deployment milestone.
 | ENV-04 | Phase 25 | Complete |
 | BUILD-01 | Phase 25 | Complete |
 | BUILD-02 | Phase 25 | Complete |
-| ROUTE-01 | Phase 26 | Pending |
-| PATH-01 | Phase 26 | Pending |
+| ROUTE-01 | Phase 26 | Complete |
+| PATH-01 | Phase 26 | Complete |
 | CI-01 | Phase 27 | Pending |
 | CI-02 | Phase 27 | Pending |
 | CI-03 | Phase 27 | Pending |
@@ -105,4 +105,4 @@ Requirements for GitHub Pages deployment milestone.
 
 ---
 *Requirements defined: 2026-04-18*
-*Last updated: 2026-04-23 — Phase 25 complete; ENV-03/BUILD-02 updated to reflect gh-pages mode decision; PWA-03 human verify pending*
+*Last updated: 2026-04-24 — Phase 26 complete; ROUTE-01 and PATH-01 satisfied; human-approved*
