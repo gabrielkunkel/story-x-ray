@@ -251,7 +251,7 @@ Plans:
   1. A push to `main` triggers the workflow and deploys the production build to GitHub Pages without manual steps
   2. The workflow uses split build/deploy jobs with correct permissions; overlapping runs are cancelled automatically
   3. A developer reading the README can set up env files, run dev and prod builds, enable GitHub Pages, and understand the `#/` routing convention without asking anyone
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 27-01: GitHub Actions deploy.yml workflow
