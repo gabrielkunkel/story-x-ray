@@ -37,6 +37,59 @@ npm run build      # TypeScript check + Vite production build
 npm run preview    # Preview the production build locally
 ```
 
+## Environment files
+
+The app uses Vite's `loadEnv` to control the asset base path at build time.
+
+| File | Purpose |
+|------|---------|
+| `.env` | Local development. Sets `VITE_BASE_PATH=/` (root). Used by `npm run dev` and `npm run build`. |
+| `.env.gh-pages` | GitHub Pages build. Sets `VITE_BASE_PATH=/story-x-ray/`. Used by `npm run build:prod`. |
+| `.env.example` | Documentation template. Copy to `.env` and adjust for your environment. |
+
+Both `.env` and `.env.gh-pages` are committed to the repository — they contain no secrets, only the base path value.
+
+To deploy to a different GitHub Pages URL (e.g. `/my-fork/`), edit `.env.gh-pages`:
+
+```
+VITE_BASE_PATH=/my-fork/
+```
+
+## Deploying to GitHub Pages
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically deploys the app on every push to `main`.
+
+### Enable GitHub Pages (one-time setup)
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings → Pages**
+3. Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+4. Push any commit to `main` — the workflow runs automatically
+
+### Build commands
+
+```bash
+npm run build:prod   # GitHub Pages build — reads .env.gh-pages (VITE_BASE_PATH=/story-x-ray/)
+npm run build        # Local production build — reads .env (VITE_BASE_PATH=/)
+npm run preview      # Preview a local build at localhost:4173
+```
+
+Use `npm run build:prod` for deployment. Use `npm run build` to verify the local build locally.
+
+## Routing
+
+This app uses React Router's **HashRouter**. All routes are prefixed with `#` in the URL:
+
+```
+https://username.github.io/story-x-ray/#/
+https://username.github.io/story-x-ray/#/setup
+https://username.github.io/story-x-ray/#/story/abc123
+```
+
+HashRouter keeps all navigation client-side, which means static hosts (including GitHub Pages) serve a single `index.html` without needing server-side route configuration. Direct URL access and page refresh work correctly.
+
+If you see routes without `#/` (e.g. `/setup` 404ing on refresh), check that `src/App.tsx` uses `HashRouter` from `react-router-dom`.
+
 ## Enable Beehiiv email capture
 
 Set your publication ID in `src/config/beehiiv.ts`:
