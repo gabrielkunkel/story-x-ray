@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback } from 'react'
 import type { Story } from '../types/story'
-import { hasShownThisSession, markShownThisSession, hasSubmittedEmail } from '../utils/emailCapture'
+import { hasShownThisSession, markShownThisSession, hasSubmittedEmail, isEmailCaptureEnabled } from '../utils/emailCapture'
 
 export function useEmailDebounce(
   story: Story | null,
@@ -15,6 +15,7 @@ export function useEmailDebounce(
 
   const resetDebounceTimer = useCallback(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current)
+    if (!isEmailCaptureEnabled()) return
     if (hasShownThisSession('act1') || hasSubmittedEmail()) return
     if (qualifyingStepRef.current === null) return
 
@@ -29,6 +30,7 @@ export function useEmailDebounce(
   // Threshold detection — detects qualifying step (replaces old Trigger 1)
   useEffect(() => {
     if (!story) return
+    if (!isEmailCaptureEnabled()) return
     if (hasShownThisSession('act1') || hasSubmittedEmail()) return
     if (qualifyingStepRef.current !== null) return  // already captured
 
@@ -54,6 +56,7 @@ export function useEmailDebounce(
   }, [])
 
   const handleBeatTextBlur = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
+    if (!isEmailCaptureEnabled()) return
     if (hasShownThisSession('act1') || hasSubmittedEmail()) return
     if (qualifyingStepRef.current === null) return
     if (activeStepNumber !== qualifyingStepRef.current) return  // not the qualifying field (D-01)

@@ -105,12 +105,25 @@ Find it at app.beehiiv.com → Settings → Publication. Leave empty to run in d
 The email capture modal's content is configured in `src/config/emailModal.ts`.  
 Edit that file and redeploy — no component changes needed.
 
+### Enable / disable
+
+Set `enabled` in `src/config/emailModal.ts`:
+
+```ts
+export const emailModalConfig: EmailModalConfig = {
+  enabled: false, // true = show the modal + all signup CTAs; false = hide everything
+  ...
+```
+
+`enabled: false` disables the entire email-capture feature — no modal, no auto-trigger, and the Start-page signup CTAs are hidden. This is independent of `BEEHIIV_PUBLICATION_ID` in `src/config/beehiiv.ts` (which controls live vs dev subscription).
+
 ### Fields
 
 #### Global (same across all trigger contexts)
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `enabled` | `boolean` | Master switch. `false` hides the modal and all signup CTAs/triggers. |
 | `imageSrc` | `string` | Path to marketing image in `public/`. Empty string = no image. |
 | `ctaText` | `string` | Label on the email submit button. |
 | `footer` | `string?` | Optional line below the form (e.g. "No spam."). Empty or absent = hidden. |

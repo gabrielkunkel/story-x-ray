@@ -16,6 +16,11 @@ export interface ModalContextCopy {
 }
 
 export interface EmailModalConfig {
+  /**
+   * Master switch for the entire email-capture feature.
+   * `false` hides the modal and all signup CTAs/triggers app-wide.
+   */
+  enabled: boolean
   /** Global fields — same across all trigger contexts */
   global: {
     /** Path to marketing image in public/. Empty string = no image. */
@@ -30,6 +35,7 @@ export interface EmailModalConfig {
 }
 
 export const emailModalConfig: EmailModalConfig = {
+  enabled: false,
   global: {
     imageSrc: '',          // e.g. '/marketing.png' — empty string = no image
     ctaText: 'Send me the pack',

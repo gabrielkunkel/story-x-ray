@@ -8,6 +8,7 @@ import {
   hasSubmittedEmail,
   hasShownThisSession,
   markShownThisSession,
+  isEmailCaptureEnabled,
 } from '../utils/emailCapture'
 import { useEmailDebounce } from '../hooks/useEmailDebounce'
 import { isChromeBrowser, shouldShowInstallCallout, recordInstallDismiss } from '../utils/pwaInstall'
@@ -162,7 +163,7 @@ if (installCalloutShownRef.current) return
 
   // Trigger 2 — first export capture
   function handleExportJSON() {
-    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+    if (isEmailCaptureEnabled() && !hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
       setCaptureContext('export')
     }
@@ -178,7 +179,7 @@ if (installCalloutShownRef.current) return
   }
 
   function handlePdfChoice(includeScores: boolean) {
-    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+    if (isEmailCaptureEnabled() && !hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
       setCaptureContext('export')
     }
@@ -196,7 +197,7 @@ if (installCalloutShownRef.current) return
   }
 
   function handleExportMarkdown() {
-    if (!hasSubmittedEmail() && !hasShownThisSession('export')) {
+    if (isEmailCaptureEnabled() && !hasSubmittedEmail() && !hasShownThisSession('export')) {
       markShownThisSession('export')
       setCaptureContext('export')
     }
@@ -205,6 +206,7 @@ if (installCalloutShownRef.current) return
 
   // Trigger 3 — diagnostics panel CTA
   const showDiagCaptureCTA = showDiagnostics
+    && isEmailCaptureEnabled()
     && !hasSubmittedEmail()
     && !hasShownThisSession('diagnostics')
 
@@ -320,7 +322,7 @@ if (installCalloutShownRef.current) return
         />
       )}
 
-      {captureContext && (
+      {captureContext && isEmailCaptureEnabled() && (
         <EmailCaptureModal
           context={captureContext}
           onClose={() => setCaptureContext(null)}

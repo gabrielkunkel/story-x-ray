@@ -1,6 +1,11 @@
 import { BEEHIIV_PUBLICATION_ID } from '../config/beehiiv'
+import { emailModalConfig } from '../config/emailModal'
 
 const SUBMITTED_KEY = 'sxr:cap:submitted'
+
+export function isEmailCaptureEnabled(): boolean {
+  return emailModalConfig.enabled
+}
 
 export function hasSubmittedEmail(): boolean {
   return localStorage.getItem(SUBMITTED_KEY) === 'true'
